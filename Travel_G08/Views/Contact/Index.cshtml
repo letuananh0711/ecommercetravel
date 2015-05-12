@@ -1,0 +1,171 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@{
+    ViewBag.Title = "TRAVEL G08 Website - Contact";
+    Layout = "~/Content/Frontend/_layout.cshtml";
+}
+
+@{
+    Session["CurrentUrl"] = Request.Url.ToString();
+}
+
+@section menu
+{
+    <ul>      
+        <li><a href="/Home/Index">Home</a></li>
+        <li><a href="/Home/About">About</a></li>
+        <li><a href="/Tours/Index">Tours</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                <li><a href="/Tours/InternationalTours">International tour</a></li>
+                <li><a href="/Tours/CityTours">City tour</a></li>
+            </ul>
+        </li>
+        <li><a href="/Services/Index">Services</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Services/Airplane">Airplane</a></li>
+                <li><a href="/Services/Hotel">Hotel</a></li>
+                <li><a href="/Services/Transport">Transport</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/Contact/Index" class="selected">Contact</a></li>
+    </ul>
+}
+
+@*<h2>@ViewBag.Message</h2>*@
+<!-- Main body -->
+<!-- InstanceBeginEditable name="EditRegion1" -->
+<table width="664" cellspacing="0" cellpadding="0" border="0" align="center">
+        <tbody><tr>
+          <td><img width="664" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_top.jpg")"></td>
+        </tr>
+        <tr>
+          <td valign="top" class="borderLR">
+          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>
+              <td width="5">&nbsp;</td>
+              <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                  <tr>
+                        <td valign="top"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                          <tr>
+                            <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                              <tbody><tr>
+                                <td width="72%"><span class="Title" style="font-size:15px;">TRAVEL G08</span><br /><br />
+                                <span>TRAVEL G08 Website</span><br />
+                                <span>Team G08 - Big Module TRAVEL</span><br />
+                                <span>Project E-Commerce</span><br />
+                                <span>IT HCMUS 2012</span>
+                             </td>
+                              </tr>
+                            </tbody></table></td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                          </tr>
+                        </tbody></table></td>
+                      </tr>	                               
+                      <tr>
+                        <td>                        
+                        <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tbody><tr>
+                            <td width="2%" height="30" bgcolor="#E0DFDF">&nbsp;</td>
+                            <td height="30" bgcolor="#E0DFDF" colspan="6"><strong class="Title"><span>Yahoo</span></strong></td>
+                          </tr>
+                          </tbody>
+                          </table>
+                          <br />
+                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                          <tr align="center">
+                            <td>
+                                <a href="ymsgr:sendIM?tuananhalk1012&m=SupportYahoo-www.travelg08.com">
+                                    <img border="0" vspace="5" src="http://mail.opi.yahoo.com/online?u=tuananhalk1012&m=g&t=14">
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="ymsgr:sendIM?duy3105&m=SupportYahoo-www.travelg08.com">
+                                    <img border="0" vspace="5" src="http://mail.opi.yahoo.com/online?u=duy3105&m=g&t=14">
+                                </a>
+                            </td>
+                            
+                            <td>
+                                <a href="ymsgr:sendIM?incomplete.2804&m=SupportYahoo-www.travelg08.com">
+                                    <img border="0" vspace="5" src="http://mail.opi.yahoo.com/online?u=incomplete.2804&m=g&t=14">
+                                </a>
+                            </td>                                                            
+                          </tr>  
+                        <tr align="center">
+                            <td bgcolor="#EEEEEE"><p class="redtext" style="margin:5px;"><strong>Lê Tuấn Anh</strong></p></td>
+                            <td bgcolor="#EEEEEE"><p class="redtext" style="margin:5px;"><strong>Nguyễn Hoàng Bảo Duy</strong></p></td>
+                            <td bgcolor="#EEEEEE"><p class="redtext" style="margin:5px;"><strong>Nguyễn Thành Nhơn</strong></p></td>                                                                     
+                        </tr>
+                                                                        
+                        </tbody></table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>
+                       
+                      <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tbody><tr>
+                            <td width="2%" height="30" bgcolor="#E0DFDF">&nbsp;</td>
+                            <td height="30" bgcolor="#E0DFDF" colspan="6"><strong class="Title"><span>Skype</span></strong></td>
+                          </tr>
+                          </tbody>
+                          </table>
+                          <br />
+                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                          <tr align="center">
+                            <td>
+                                <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+                                <a href="skype:alk1012?call"><img src="http://download.skype.com/share/skypebuttons/buttons/call_green_white_153x63.png" style="border: none;" width="153" height="63" alt="Skype Me™!" /></a>
+                                
+                                @*<a href="skype:alk1012?call"><img src="http://mystatus.skype.com/balloon/alk2012" style="border: none;" width="150" height="60" alt="My status" /></a>*@
+                            </td>
+
+                            <td>
+                                <a href="skype:duy3105?call"><img src="http://download.skype.com/share/skypebuttons/buttons/call_green_white_153x63.png" style="border: none;" width="153" height="63" alt="Skype Me™!" /></a>
+                                                                
+                                @*<a href="skype:duy3105?call"><img src="http://mystatus.skype.com/balloon/duy3105" style="border: none;" width="150" height="60" alt="My status" /></a>*@
+                            </td>
+                            
+                            <td>
+                                <a href="skype:ntnhon.cs?call"><img src="http://download.skype.com/share/skypebuttons/buttons/call_green_white_153x63.png" style="border: none;" width="153" height="63" alt="Skype Me™!" /></a>
+
+                                @*<a href="skype:ntnhon.cs?call"><img src="http://mystatus.skype.com/balloon/ntnhon.cs" style="border: none;" width="150" height="60" alt="My status" /></a>*@
+                             </td>
+                             <br />                                                            
+                          </tr>  
+                        <tr align="center">
+                            <td bgcolor="#EEEEEE"><p class="redtext" style="margin:5px;"><strong>Lê Tuấn Anh</strong></p></td>
+                            <td bgcolor="#EEEEEE"><p class="redtext" style="margin:5px;"><strong>Nguyễn Hoàng Bảo Duy</strong></p></td>
+                            <td bgcolor="#EEEEEE"><p class="redtext" style="margin:5px;"><strong>Nguyễn Thành Nhơn</strong></p></td>                                                                     
+                        </tr>
+                                                                        
+                        </tbody></table>               
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>                       
+
+                      </tr>                       
+                    </tbody>
+                </table>
+                </td>
+        </tr>
+
+
+        <tr>
+          <td><img width="664" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_bottom.jpg")"></td>
+        </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>
+    <!-- InstanceEndEditable -->

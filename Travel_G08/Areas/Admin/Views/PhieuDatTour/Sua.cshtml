@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/admin_layout.cshtml";
+}
+@if (Session["IsLogin"] == null)
+{
+    Response.Redirect("Login");
+}
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            keepSystemHeadingState();
+        });
+    </script>
+}
+<div id="right" style="width:1130px;height:560px;overflow:auto;">
+    <div id="content">
+        <div class="container">       
+            <div class="conthead">
+                <h2>Edit customer:</h2>
+             </div>
+             <div class="contentbox">
+             <ul class="breadcrumb">
+                <li>@Html.ActionLink("Home page", "Index", "Admin")</li> /
+                <li>@Html.ActionLink("Book tour", "DanhSach", "PhieuDatTour")</li> / 
+                <li>@Html.ActionLink("Edit", "Sua", "PhieuDatTour", new { ID = @ViewBag.PhieuDatTour.maPhieuDatTour })</li>
+            </ul>
+                 <form name="myForm" action="Sua" method="post" class="form-horizontal" enctype="multipart/form-data">
+                         @if(ViewBag.Error != null)
+                         {
+                            <div class="status error">
+                                <p class="closestatus"><a href="" title="Close">x</a></p>
+                                <p><img src="../../../Content/img/icon_error.png" alt="Error">
+	                            <span>Error! @ViewBag.Error</span></p>
+                            </div>
+                         }
+                         @if (ViewBag.Message != null)
+                         {
+                            <div class="status success">
+                                <p class="closestatus"><a href="" title="Close">x</a></p>
+                                <p><img src="../../../Content/img/icon_approve.png" alt="Error">
+                                <span>@ViewBag.Message!</span></p>
+                            </div>
+                         }
+                         <div class="control-group">
+                             <label class="control-label">Tour</label>
+                             <div class="controls">
+                                <input readonly="true" type="text" name="name" value="@ViewBag.PhieuDatTour.Tour.tenTour"/>
+                             </div>
+                         </div>
+                         <div class="control-group">
+                             <label class="control-label">Customer</label>
+                             <div class="controls">
+                                <input readonly="true" type="text" name="address" value="@ViewBag.PhieuDatTour.KhachHang.hoTen"/>
+                             </div>
+                         </div>
+                         <div class="control-group">
+                             <label class="control-label">Booking Tour</label>
+                             <div class="controls">
+                                <input readonly="true" type="text" name="phone" value="@ViewBag.PhieuDatTour.ngayDat"/>
+                             </div>
+                         </div>
+                         <div class="control-group">
+                             <label class="control-label">Total Price</label>
+                             <div class="controls">
+                                <input readonly="true" type="text" name="phone" value="@ViewBag.PhieuDatTour.tongTien"/>
+                             </div>
+                         </div>
+                        <div class="control-group">
+                             <label class="control-label">Status</label>
+                             <div class="controls">
+                                <select name="status">
+                                    <option value="Đã hủy" @if (@ViewBag.PhieuDatTour.trangThai == "Đã hủy") { ViewContext.Writer.Write("selected"); }>Đã hủy</option>
+                                    <option value="Đã thanh toán" @if (@ViewBag.PhieuDatTour.trangThai == "Đã thanh toán") { ViewContext.Writer.Write("selected"); }>Đã thanh toán</option>
+                                    <option value="Đã xác nhận" @if (@ViewBag.PhieuDatTour.trangThai == "Đã xác nhận") { ViewContext.Writer.Write("selected"); }>Đã xác nhận</option>
+                                    <option value="Chưa xác nhận" @if (@ViewBag.PhieuDatTour.trangThai == "Chưa xác nhận") { ViewContext.Writer.Write("selected"); }>Chưa xác nhận</option>
+                                </select>
+                             </div>
+                         </div> 
+                         <input name="ID" type="hidden" value="@ViewBag.PhieuDatTour.maPhieuDatTour"/>
+                         <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Apply</button>
+                            @Html.ActionLink("Exit", "DanhSach", "PhieuDatTour", new { @class = "btn btn-inverse" })
+                         </div>
+                 </form>              
+             </div>            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,168 @@
+﻿@model IEnumerable<Travel_G08.Tour>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/admin_layout.cshtml";
+}
+@if (Session["IsLogin"] == null)
+{
+    Response.Redirect("Login");
+}
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            keepProductHeadingState();
+        });
+    </script>
+}
+<div id="right" style="width:1130px;height:560px;overflow:auto;">
+    <div id="content">
+        <div class="container">       
+            <div class="conthead">
+                <h2>Tour list:</h2>
+             </div>
+             <div class="contentbox">
+             <ul class="breadcrumb">
+                <li>@Html.ActionLink("Home page", "Index", "Admin")</li> /
+                <li>@Html.ActionLink("List tour", "DanhSach", "Tour")</li> / 
+            </ul>
+             @Html.ActionLink("New tour", "Them", "Tour", new { @class = "btn btn-primary pull-right" })
+                <table width="100%">
+                    <thead>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Tour</th>
+                        <th>Duration</th>
+                        <th>Start destination</th>
+                        <th>Start date</th>
+                        <th>Status</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                        <th><input name="" value="" id="checkboxall" type="checkbox"></th>
+                    </thead>
+                    <tbody>
+                        @if (@ViewBag.count == 0)
+                        {
+                            <tr>
+                                <td colspan="11">No result found.</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            int i = 0;
+                            foreach (var s in Model)
+                            {
+                                if (i % 2 == 0)
+                                {
+                                    <tr class="alt">
+                                        <td>@s.maTour</td>
+                                        <td>@s.loaiTour</td>
+                                        <td><a href="@Url.Action("Sua", "Tour", new { ID = @s.maTour })">@s.tenTour</a></td>
+                                        <td>@s.soNgayDem</td>
+                                        <td><a href="@Url.Action("Sua", "DiaDiem", new { ID = @s.DiaDiem.maDiaDiem })">@s.DiaDiem.tenDiaDiem</a></td>
+                                        <td>@s.ngayThucHien</td>
+                                        @{string trangThai = @s.trangThaiTour;}
+                                        @switch (trangThai)
+                                        {
+                                            case "Đã hủy":
+                                                <td>
+                                                    <span class="label btn-danger">Đã hủy</span>
+                                                </td>
+                                                break;
+                                            case "Đã kết thúc":
+                                                <td>
+                                                    <span class="label btn-success">Đã kết thúc</span>
+                                                </td>
+                                                break;
+                                            case "Đang thực hiện":
+                                                    <td>
+                                                        <span class="label btn-info">Đang thực hiện</span>
+                                                    </td>
+                                                break;
+                                            case "Đóng":
+                                                <td>
+                                                    <span class="label btn-warning">Đóng</span>
+                                                </td>
+                                            break;
+                                            case "Mở":
+                                                    <td>
+                                                        <span class="label btn-primary">Mở</span>
+                                                    </td>
+                                            break;
+                                        }
+                                        <td>@s.giaTour</td>
+                                        <td>@Html.Raw(@s.gioiThieu)</td>
+                                        <td>
+                                            <a href="@Url.Action("Sua", "Tour", new { ID = @s.maTour })" title=""><img src="../../../Content/img/icon_edit.png" alt="Edit"></a>
+                                            <a href="@Url.Action("Xoa", "Tour", new { ID = @s.maTour })" title="" class="delete-row" onclick="return GetConfirmation();"><img src="../../../Content/img/icon_delete.png" alt="Delete"></a>
+                                        </td>
+                                        <td><input value="" name="checkall" type="checkbox"/></td>
+                                    </tr>
+                                                i++;
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td>@s.maTour</td>
+                                        <td>@s.loaiTour</td>
+                                        <td><a href="@Url.Action("Sua", "Tour", new { ID = @s.maTour })">@s.tenTour</a></td>
+                                        <td>@s.soNgayDem</td>
+                                        <td><a href="@Url.Action("Sua", "DiaDiem", new { ID = @s.DiaDiem.maDiaDiem })">@s.DiaDiem.tenDiaDiem</a></td>
+                                        <td>@s.ngayThucHien</td>
+                                        @{string trangThai = @s.trangThaiTour;}
+                                        @switch (trangThai)
+                                        {
+                                            case "Đã hủy":
+                                                <td>
+                                                    <span class="label btn-danger">Đã hủy</span>
+                                                </td>
+                                                break;
+                                            case "Đã kết thúc":
+                                                <td>
+                                                    <span class="label btn-success">Đã kết thúc</span>
+                                                </td>
+                                                break;
+                                            case "Đang thực hiện":
+                                                    <td>
+                                                        <span class="label btn-info">Đang thực hiện</span>
+                                                    </td>
+                                                break;
+                                            case "Đóng":
+                                                <td>
+                                                    <span class="label btn-warning">Đóng</span>
+                                                </td>
+                                                break;
+                                            case "Mở":
+                                                    <td>
+                                                        <span class="label btn-primary">Mở</span>
+                                                    </td>
+                                                break;
+                                        }
+                                        <td>@s.giaTour</td>
+                                        <td>@Html.Raw(@s.gioiThieu)</td>
+                                        <td>
+                                            <a href="@Url.Action("Sua", "Tour", new { ID = @s.maTour })" title=""><img src="../../../Content/img/icon_edit.png" alt="Edit"></a>
+                                            <a href="@Url.Action("Xoa", "Tour", new { ID = @s.maTour })" title="" class="delete-row" onclick="return GetConfirmation();"><img src="../../../Content/img/icon_delete.png" alt="Delete"></a>
+                                        </td>
+                                        <td><input value="" name="checkall" type="checkbox"/></td>
+                                    </tr>
+                                                i++;
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+                <div class="pagination clearfix">
+                    @if ((string)ViewData["pageLinks"] != "")
+                    {
+                        <ul>
+                            @Html.Raw(ViewBag.pageLinks)
+                        </ul>
+                        <br />
+                        <br />
+                    }
+                </div>
+             </div>
+        </div>
+    </div>
+</div>

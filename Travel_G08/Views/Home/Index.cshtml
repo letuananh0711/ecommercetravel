@@ -1,0 +1,505 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@{
+    ViewBag.Title = "TRAVEL G08 Website - Homepage";
+    Layout = "~/Content/Frontend/_layout.cshtml";
+}
+
+@section scripts
+{
+    <!--Date Picker-->
+    <link href="@Url.Content("~/Content/Frontend/css/jquery.datepick.css")" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="@Url.Content("~/Content/Frontend/js/jquery.datepick.js")"></script>
+    <script src="@Url.Content("~/Content/Frontend/js/jquery.mousewheel.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#popupDatepicker1').datepick();
+            $('#popupDatepicker2').datepick();
+            $('#popupDatepicker3').datepick();
+            $('#popupDatepicker4').datepick();
+            $('#popupDatepicker5').datepick();
+            $('#popupDatepicker6').datepick();
+        });
+    </script>
+
+    <!--Banner advertising-->
+    <link href="@Url.Content("~/Content/Frontend/css/banner.css")" type="text/css" rel="stylesheet" />
+    <script src="@Url.Content("~/Content/Frontend/js/mBanner.js")" type="text/javascript"></script>
+
+}
+
+@section menu
+{
+    <ul>      
+        <li><a href="/Home/Index" class="selected">Home</a></li>
+        <li><a href="/Home/About">About</a></li>
+        <li><a href="/Tours/Index">Tours</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                <li><a href="/Tours/InternationalTours">International tour</a></li>
+                <li><a href="/Tours/CityTours">City tour</a></li>
+            </ul>
+        </li>
+        <li><a href="/Services/Index">Services</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Services/Airplane">Airplane</a></li>
+                <li><a href="/Services/Hotel">Hotel</a></li>
+                <li><a href="/Services/Transport">Transport</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/Contact/Index">Contact</a></li>
+    </ul>
+}
+
+<!--<h2>@ViewBag.Message</h2>-->
+
+<!-- Main body -->	
+	<!-- InstanceBeginEditable name="EditRegion1" -->
+    <!-- Welcome -->
+	<div class="col one_third fp_services">
+    <h2>Welcome!</h2>
+        <img src="@Url.Content("~/Content/Frontend/images/templatemo_image_04.jpg")" alt="Image 04 " class="image_fl" />
+        <p>Here is the TRAVEL G08 Website. One in the big module of the project E-Commerce. We will provide you the best tours and the best services for your trip. Check it out right now!</p>
+  		<ul class="templatemo_list">
+            <li class="flow">Booking tours</li>
+            <li class="flow nomr">Airplaine service</li>
+            <li class="flow">Hotel service</li>
+            <li class="flow nomr">Transport service</li>
+        </ul>
+    </div>
+
+    <!-- Latest Tours -->
+    <div class="col one_third fp_services">
+        <h2>Latest Tours</h2>
+        @foreach (var tour in ViewBag.lastestTours)
+        {
+            <div class="rp_pp">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <img src="../Content/img/DiaDiem/@tour.DiaDiem.hinhAnh" alt="" width="50" height="50"/>                                     
+                        </td>
+                        <td rowspan="2">
+                            <a style="font-weight:bold;" href="/Tours/TourDetailInfo/?slug=@tour.slug" target="_blank" title="@tour.tenTour" id="@tour.slug">@tour.tenTour</a>	
+                            <br>      
+                                @tour.soNgayDem
+                            <br>                                                                                         
+                            Giá: <span class="redtext">@tour.giaTour JPY</span>                                                                                     
+                            <br>                          
+                                @{string ngayThucHien = @tour.ngayThucHien.ToString("dd/MM/yyyy");}
+                                Khởi hành: @ngayThucHien
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/Tours/BookTour/?slug=@tour.slug" target="_blank"><img border="0" alt="" title="" src="@Url.Content("~/Content/Frontend/images/bt_booking_s.png")"></a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="cleaner"></div>
+            </div>
+        }
+    </div>
+
+    <!-- Search -->
+    <div class="col one_third no_margin_right fp_services">
+        <h2>Search</h2>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>	
+				<td height="25">
+					<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="28%" id="_pnl_tour" class="borderTR" style="CURSOR: pointer;text-transform:none" onclick="selectPanel('searchtour')">Tour</td>
+							<td width="39%" id="_pnl_search" class="borderB" style="CURSOR: pointer;text-transform:none" onclick="selectPanel('searchbooking')">Airplane</td>
+							<td width="33%" id="_pnl_score" class="borderB" style="CURSOR: pointer;text-transform:none" onclick="selectPanel('searchscore')">Hotel</td>
+							<td width="33%" id="_pnl_transport" class="borderB" style="CURSOR: pointer;text-transform:none" onclick="selectPanel('searchtransport')">Transport</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="borderLR" style="background-repeat: repeat-x">
+					<div id="panelSearchTour" style="DISPLAY: block">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0" style="height:195px">
+							<tr>
+								<td>
+                                <form method="post" action="/Home/Search">
+                                	<table id="searchBoxTour" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    	<tr>
+                                            <td colspan="2" style="text-align:right; padding-top:10px">
+                                                <span class="redtext">*</span>
+                                                <i>Indicate required fields</i>
+                                            </td>
+										</tr>
+										<tr>
+											<td style="width: 100%">
+												<input id="TN" onclick="selectDiemDen(this.value)" type="radio" value="TN" name="_loaiTour"  />Domestic tour
+											</td>
+											<td style="width: 100%">
+                                                <input id="NG" onclick="selectDiemDen(this.value)" type="radio" value="NG" name="_loaiTour" checked="checked" />International tour
+											</td>                                            
+										</tr>
+                                        <tr>
+                                            <td style="padding-top: 5px; width: 100%">From<span class="redtext">*</span></td>
+                                            <td style="padding-top: 5px; width: 100%">
+                                                <select name="_diemXuatPhat" id="cboNoiKhoiHanh" style="PADDING-LEFT:3px; WIDTH:100%">
+													@foreach (var s in ViewBag.listDesTinationDomestic)
+                                                    {
+                                                        <option value="@s.maDiaDiem">@s.tenDiaDiem</option>
+                                                    }
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-top: 5px; width: 100%">To</td>
+                                            <td style="padding-top: 5px; width: 100%">
+                                                <div id="diemDenTN" style="DISPLAY: none" align="left">
+                                                    <span>
+                                                    <select name="_diemDenTN" id="cboTinhThanhTN" style="PADDING-LEFT:3px; WIDTH:100%">       
+														<option value="0">-------- Select all --------</option>
+                                                         @foreach (var s in ViewBag.listDesTinationDomestic)
+                                                        {
+                                                            <option value="@s.maDiaDiem">@s.tenDiaDiem</option>
+                                                        }                                                  
+                                                    </select>
+                                                    </span>
+                                                </div>
+                                                <div id="diemDenNG" style="DISPLAY: block" align="left">
+                                                    <span>
+                                                    <select name="_diemDenNG" id="cboTinhThanhNG" style="PADDING-LEFT:3px; WIDTH:100%">
+                                                        <option value="0">-------- Select all --------</option>
+                                                        @foreach (var a in @ViewBag.ListDestinationByCountry)
+                                                        {
+                                                            <optgroup label="@a.TenQuocGia">
+                                                            @foreach (var b in @a.TenDiaDiems)
+                                                            {
+                                                                <option value="@b.maDiaDiem">@b.tenDiaDiem</option>
+                                                            }
+                                                            </optgroup>
+                                                        }
+                                                    </select>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-top: 5px; width: 100%">Price (JYP)</td>
+                                            <td style="padding-top: 5px; width: 100%">
+                                                <div id="giaDiemDenTN" style="DISPLAY: none" align="left">
+                                                    <span>
+                                                    <select name="_giaTourTN" style="PADDING-LEFT:3px; WIDTH:100%">
+                                                        <option value="-1">-------- Select all --------</option>
+                                                        <option value="0 1000000">Under 1 Million</option>
+                                                        <option value="1000000 2000000">  1 - 2 Million</option>
+                                                        <option value="2000000 4000000">  2 - 4 Million</option>
+                                                        <option value="4000000 6000000">  4 - 6 Million</option>
+                                                        <option value="6000000 10000000">  6 - 10 Million</option>
+                                                        <option value="10000000">Above 10 Million</option>
+                                                    </select>
+                                                    </span>
+                                                </div>
+                                                <div id="giaDiemDenNG" style="DISPLAY: block" align="left">
+                                                    <span>
+                                                    <select name="_giaTourNG" style="PADDING-LEFT:3px; WIDTH:100%">
+                                                        <option value="-1">-------- Select all --------</option>
+                                                        <option value="0 3000000">Under 3 Million</option>
+                                                        <option value="3000000 7000000"> 3 - 7 Million</option>
+                                                        <option value="7000000 12000000"> 7 - 12 Million</option>
+                                                        <option value="1200000 15000000"> 12 - 15 Million</option>
+                                                        <option value="1500000 18000000"> 15 - 18 Million</option>
+                                                        <option value="1800000 22000000"> 18 - 22 Million</option>
+                                                        <option value="2200000 32000000"> 22 - 32 Million</option>
+                                                        <option value="3200000"> Above 32 Million</option>
+                                                    </select>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-top: 5px; width: 100%">Depart</td>
+                                            <td style="padding-top: 5px; width: 100%"><input type="text" iname="_ngayDi" id="popupDatepicker1" placeholder="MM/DD/YYYY" /></td>
+                                        </tr>
+                                        <tr>
+                                        	<td colspan="2" style="padding-top: 10px; padding-left: 100px">
+                                            	<input formtarget="_blank" type="submit" id="id_btnSearchTour" value="Search Tours"/>
+                                            </td>
+                                      </tr>
+                                    </table>
+                                </form>
+                                </td>
+							</tr>
+						</table>
+					</div>
+					<div id="panelSearchBooking" style="DISPLAY: none">
+						<div id="DefaultModule_ucSearchTour1_Panel1" >
+							<table cellspacing="0" cellpadding="0" width="90%" border="0" align="center" style="height:195px">
+								<tr>
+									<td>
+                                    	<table id="serchBoxAirplane" width="100%" border="0" cellpadding="0" cellspacing="0">
+                                        	<tr>
+                                           		<td colspan="2" style="text-align:right; padding-top:10px">
+                                                	<span class="redtext">*</span>
+                                                	<i>Indicate required fields</i>
+                                                </td>
+											</tr>
+                                        	<tr>
+                                            	<td colspan="2" style="padding-top:10px; width:100%">
+                                                	<input id="id_rbOneWay" name="rbTripType" type="radio" value="rbOneWay" checked="checked" />
+                                                    <label for="rbOneWay">One Way</label>
+                                                    <input id="id_rbRoundTrip" name="rbTripType" type="radio" value="rbRoundTrip" />
+                                                    <label for="rbRoundTrip">RoundTrip</label>
+                                                </td>                                              
+                                            </tr>
+                                            <tr>
+                                            	<td>
+                                                	From<span class="redtext">*</span>
+                                                </td>
+                                                <td>
+                                                	<input id="id_txbFrom" name="txbFrom" type="text" placeholder="Depart from city"  style="width:100%; padding-top:5px" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            	<td>
+                                                	To<span class="redtext">*</span>
+                                                </td>
+                                                <td>
+                                                	<input id="id_txbTo" name="txbTo" type="text" placeholder="Arrive to city"  style="width:100%; padding-top:5px"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            	<td>
+                                                	Depart<span class="redtext">*</span>
+                                                </td>
+                                                <td>
+                                                	<input id="popupDatepicker2" name="txbDepart" type="text" placeholder="MM/DD/YYYY"  style="width:100%; padding-top:5px" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            	<td>
+                                                	Return<span class="redtext">*</span>
+                                                </td>
+                                                <td>
+                                                	<input id="popupDatepicker3" name="txbReturn" type="text" placeholder="MM/DD/YYYY"  style="width:100%; padding-top:5px" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            	<td colspan="2" style="padding-top: 10px; padding-left: 100px">
+													<input type="button" id="id_btnSearchAirplane" value="Search Tickets"/>												
+												</td>
+                                            </tr>                                            
+                                        </table>
+                                    </td>
+								</tr> 
+							</table>
+						</div>
+					</div>
+					<div id="panelSearchScore" style="DISPLAY: none">
+						<div id="DefaultModule_ucSearchTour1_Panel2" >
+							<table cellspacing="0" cellpadding="0" width="90%" border="0" align="center" style="height:195px">
+								<tr>
+									<td>
+                                    	<table id="searchBoxHotel" width="100%" cellpadding="0" cellspacing="0">
+                                        	<tr>
+                                           		<td colspan="2" style="text-align:right; padding-top:10px">
+                                                	<span class="redtext">*</span>
+                                                	<i>Indicate required fields</i>
+                                                </td>
+											</tr>
+                                            <tr>
+                                                <td>
+                                                    <span>Place<span class="redtext">*</span></span>
+                                                </td>
+                                                <td>
+                                                    <select name="cbHotelPlace" style="width:100%; padding-left:3px">
+                                                    <optgroup label="Japan">
+                                                         @foreach (var s in ViewBag.listDesTinationDomestic)
+                                                        {
+                                                            <option value="@s.maDiaDiem">@s.tenDiaDiem</option>
+                                                        }
+                                                    </optgroup>
+                                                        @foreach (var a in @ViewBag.ListDestinationByCountry)
+                                                        {                                                     
+                                                            <optgroup label="@a.TenQuocGia">
+                                                                @foreach (var b in @a.TenDiaDiems)
+                                                                {
+                                                                    <option value="@b.maDiaDiem">@b.tenDiaDiem</option>
+                                                                }
+                                                            </optgroup>
+                                                        }
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        	<tr>
+                                            	<td>
+                                                	<span>Room type</span>
+                                                </td>
+                                                <td>
+                                                	<select name="cbRoomType" style="width:100%; padding-left:3px" >
+	                                                    <option value="0">-------- Select all --------</option>
+                                                    	<option value="1">Single</option>
+                                                        <option value="2">Double</option>
+                                                        <option value="3">Triple</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            	<td>
+                                                	<span>Room class</span>
+                                                </td>
+                                                <td>
+                                                	<select name="cbRoomClass" style="width:100%; padding-left:3px" >
+                                                    	<option value="0">-------- Select all --------</option>
+                                                    	<option value="1">Standard</option>
+                                                        <option value="2">Deluxe</option>
+                                                        <option value="3">Superior</option>
+                                                        <option value="4">Suite</option>
+                                                        <option value="5">VIP</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            	<td>
+                                                	<span>Check-in date<span class="redtext">*</span></span>
+                                                </td>
+                                                <td>
+                                                	<input id="popupDatepicker4" name="txbCheckInDate" type="text" placeholder="MM/DD/YYYY"  style="width:100%; padding-top:5px" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            	<td colspan="2" style="padding-top: 10px; padding-left: 100px">
+													<input type="button" id="id_btnSearchHotel" value="Search Rooms"/>												
+												</td>
+                                            </tr>
+                                        </table>
+                                    </td>                                  
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div id="panelSearchTransport" style="DISPLAY: none">
+						<div div id="DefaultModule_ucSearchTour1_Panel3">
+							<table cellspacing="0" cellpadding="0" width="90%" border="0" align="center" style="height:195px">
+								<tr>
+									<td>
+										<table id="searchBoxTransport" width="100%" cellspacing="0" cellpadding="0">
+                                        	<tr>
+                                                <td colspan="2" style="text-align:right; padding-top:10px">
+                                                    <span class="redtext">*</span>
+                                                    <i>Indicate required fields</i>
+                                                </td>
+											</tr>
+											<tr>
+												<td style="padding-top: 10px; width: 100%">Category<span class="redtext">*</span>
+												<td style="padding-top: 10px; width: 100%">
+													<select id="id_cateTrans" style="width:100%;" name="cateTrans">
+														<option value="0">-------- Select all --------</option>
+														<option value="1">4 seats</option>
+														<option value="2">7 seats</option>
+														<option value="9">16 seats</option>
+														<option value="4">29 seats</option>
+														<option value="5">35 seats</option>
+														<option value="6">45 seats</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td style="padding-top: 5px; width: 100%">Departure<span class="redtext">*</span>
+												<td style="padding-top: 5px; width: 100%">
+													<input type="text" id="popupDatepicker5" placeholder="MM/DD/YYYY" />
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2" style="padding-top: 10px; padding-left: 100px">
+													<input type="button" id="id_btnSearchTransport" value="Search Transports"/>													
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>   
+    </div>
+    
+    <div class="cleaner"></div>
+    <!-- InstanceEndEditable -->
+    
+    <!-- InstanceBeginEditable name="EditRegion2" -->
+	<script language="javascript">
+	    var banner5 = new Banner('banner5'); banner5.add('IMAGE', '/Content/Frontend/images/Advertisings/ticketcenter_255x105.jpg', 10, 105, 255, 'http://ticketing.vn/', '_blank', '1', '59', 'TT Ve'); banner5.add('IMAGE', '/Content/Frontend/images/Advertisings/gprs.gif', 5, 105, 255, 'https://travel.com.vn/gprs.html', '_blank', '1', '18', 'GPRS');
+	</script>
+	<script language="javascript">
+	    var banner6 = new Banner('banner6'); banner6.add('IMAGE', '/Content/Frontend/images/Advertisings/Vinadive313x105px.jpg', 5, 105, 313, 'http://www.vietnamdive.com.vn', '_blank', '1', '20', 'Vinadive');
+	</script>
+	<script language="javascript">
+	    var banner7 = new Banner('banner7'); banner7.add('IMAGE', '/Content/Frontend/images/Advertisings/advertising_313x105px1.gif', 5, 105, 313, '', '_blank', '1', '6', 'Đặt quảng cáo banner'); banner7.add('IMAGE', '/Content/Frontend/images/Advertisings/mangbantour313x105px.jpg', 5, 105, 313, '', '_blank', '1', '21', 'Mang ban tour');
+	</script>
+
+	<table width="100%" cellspacing="0" cellpadding="0" border="0">
+      <tbody>
+          <tr>
+            <td width="7">&nbsp;</td>
+            <td>
+                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                          <tr>
+                            <td><img width="363" height="7" src="@Url.Content("~/Content/Frontend/images/box_top.jpg")"></td>
+                          </tr>
+                          <tr>
+                            <td valign="middle" align="center" class="borderLR">
+                            <script language="javascript">document.write(banner5); banner5.start();</script>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><img width="363" height="7" src="@Url.Content("~/Content/Frontend/images/box_bottom.jpg")"></td>
+                          </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td width="10">&nbsp;</td>
+            <td width="327">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td><img width="327" height="7" src="@Url.Content("~/Content/Frontend/images/top_bannerbottom.jpg")"></td>
+                        </tr>
+                        <tr>
+                            <td valign="middle" align="center" class="borderLR">
+                                <script language="javascript">document.write(banner6); banner6.start();</script>	
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img width="327" height="7" src="@Url.Content("~/Content/Frontend/images/bottom_bannerbottom.jpg")"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td width="10">&nbsp;</td>
+            <td width="327">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                          <tr>
+                            <td><img width="327" height="7" src="@Url.Content("~/Content/Frontend/images/top_bannerbottom.jpg")"></td>
+                          </tr>
+                          <tr>
+                            <td valign="middle" align="center" class="borderLR">
+                                <script language="javascript">document.write(banner7); banner7.start();</script>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><img width="327" height="7" src="@Url.Content("~/Content/Frontend/images/bottom_bannerbottom.jpg")"></td>
+                          </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td width="7">&nbsp;</td>
+          </tr>
+    </tbody>
+    </table>
+	<!-- InstanceEndEditable -->

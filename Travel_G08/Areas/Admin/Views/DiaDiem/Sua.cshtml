@@ -1,0 +1,93 @@
+﻿@model Travel_G08.DiaDiem
+@{
+    Layout = "~/Areas/Admin/Views/Shared/admin_layout.cshtml";
+}
+@if (Session["IsLogin"] == null)
+{
+    Response.Redirect("Login");
+}
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            keepProductHeadingState();
+        });
+    </script>
+}
+<div id="right" style="width:1130px;height:560px;overflow:auto;">
+    <div id="content">
+        <div class="container">       
+            <div class="conthead">
+                <h2>Edit destination:</h2>
+             </div>
+             <div class="contentbox">
+             <ul class="breadcrumb">
+                <li>@Html.ActionLink("Home page", "Index", "Admin")</li> /
+                <li>@Html.ActionLink("List destination", "DanhSach", "DiaDiem")</li> / 
+                <li>@Html.ActionLink("Edit destination", "Sua", "DiaDiem", new { ID = @Model.maDiaDiem })</li>
+            </ul>
+                <form action="Sua" method="post" class="form-horizontal" enctype="multipart/form-data">
+                @if(ViewBag.Error != null)
+                     {
+                        <div class="status error">
+                            <p class="closestatus"><a href="" title="Close">x</a></p>
+                            <p><img src="../../../Content/img/icon_error.png" alt="Error">
+	                        <span>Error! @ViewBag.Error</span></p>
+                        </div>
+                     }
+                     @if (ViewBag.Message != null)
+                     {
+                        <div class="status success">
+                            <p class="closestatus"><a href="" title="Close">x</a></p>
+                            <p><img src="../../../Content/img/icon_approve.png" alt="Error">
+	                        <span>@ViewBag.Message!</span></p>
+                        </div>
+                     }
+                    <div class="control-group">
+                        <label class="control-label">Country</label>
+                        <div class="controls">
+                            <select name="country">
+                                @foreach (var s in @ViewBag.dsQG)
+                                {
+                                   <option value="@s.maQuocGia" @if (Model.maQuocGia == @s.maQuocGia) { ViewContext.Writer.Write("selected"); }>@s.tenQuocGia</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Destination</label>
+                        <div class="controls">
+                            <input type="text" name="destination" value="@Model.tenDiaDiem"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Description</label>
+                        <div class="controls">
+                            <textarea name="description" rows="12">@Model.gioiThieu</textarea>
+                        </div>
+                    </div>
+                   <div class="control-group">
+                        <label class="control-label" for="image">Image</label>
+                        <div class="controls">
+                        @if (@Model.hinhAnh != null)
+                        {
+                            <img src="../../../Content/img/DiaDiem/@Model.hinhAnh" alt="null" title="@Model.tenDiaDiem" width="200px" height="200px"/><br />
+                            <input type="file" name="image" id="image"/>
+                        }
+                        else
+                        {
+                            <img src="../../../Content/img/null.jpg" alt="null" title="@Model.tenDiaDiem" width="200px" height="200px"/><br />
+                            <input type="file" name="image" id="image"/>
+                        }
+                        </div>
+                    </div>
+                    <input name="ID" type="hidden" value="@Model.maDiaDiem"/>
+                    <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Apply</button>
+                        @Html.ActionLink("Exit", "DanhSach", "QuocGia", new { @class = "btn btn-inverse" })
+                    </div>
+                </form>
+             </div>
+        </div>
+    </div>
+</div>

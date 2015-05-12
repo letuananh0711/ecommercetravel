@@ -1,0 +1,35 @@
+E:\Nhon\Study\Nam 4\HK I\Thuong mai dien tu\Project\New (07.12.2012)\Travel_G08\Travel_G08\bin\Travel_G08.dll
+E:\Nhon\Study\Nam 4\HK I\Thuong mai dien tu\Project\New (07.12.2012)\Travel_G08\Travel_G08\bin\Travel_G08.pdb
+E:\Nhon\Study\Nam 4\HK I\Thuong mai dien tu\Project\New (07.12.2012)\Travel_G08\Travel_G08\bin\EntityFramework.dll
+E:\Nhon\Study\Nam 4\HK I\Thuong mai dien tu\Project\New (07.12.2012)\Travel_G08\Travel_G08\bin\EntityFramework.xml
+E:\Nhon\Study\Nam 4\HK I\Thuong mai dien tu\Project\New (07.12.2012)\Travel_G08\Travel_G08\obj\Debug\Travel_G08.dll
+E:\Nhon\Study\Nam 4\HK I\Thuong mai dien tu\Project\New (07.12.2012)\Travel_G08\Travel_G08\obj\Debug\Travel_G08.pdb
+E:\Nhon\Study\Nam 4\HK I\Thuong mai dien tu\Project\New (07.12.2012)\Travel_G08\Travel_G08\obj\Debug\Travel_G08.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Desktop\02.01.2013\Travel_G08\Travel_G08\bin\Travel_G08.dll
+C:\Users\Duy\Desktop\02.01.2013\Travel_G08\Travel_G08\bin\Travel_G08.pdb
+C:\Users\Duy\Desktop\02.01.2013\Travel_G08\Travel_G08\bin\EntityFramework.dll
+C:\Users\Duy\Desktop\02.01.2013\Travel_G08\Travel_G08\bin\EntityFramework.xml
+C:\Users\Duy\Desktop\02.01.2013\Travel_G08\Travel_G08\obj\Debug\Travel_G08.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Desktop\02.01.2013\Travel_G08\Travel_G08\obj\Debug\Travel_G08.dll
+C:\Users\Duy\Desktop\02.01.2013\Travel_G08\Travel_G08\obj\Debug\Travel_G08.pdb
+D:\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\bin\Travel_G08.dll
+D:\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\bin\Travel_G08.pdb
+D:\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\bin\EntityFramework.dll
+D:\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\bin\EntityFramework.xml
+D:\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\obj\Debug\Travel_G08.csprojResolveAssemblyReference.cache
+D:\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\obj\Debug\Travel_G08.dll
+D:\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\obj\Debug\Travel_G08.pdb
+C:\Users\Le\Desktop\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\bin\Travel_G08.dll
+C:\Users\Le\Desktop\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\bin\Travel_G08.pdb
+C:\Users\Le\Desktop\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\bin\EntityFramework.dll
+C:\Users\Le\Desktop\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\bin\EntityFramework.xml
+C:\Users\Le\Desktop\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\obj\Debug\Travel_G08.csprojResolveAssemblyReference.cache
+C:\Users\Le\Desktop\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\obj\Debug\Travel_G08.dll
+C:\Users\Le\Desktop\Dropbox\E-Commerce\Thuc hanh\Source code\SOURCE CODE THUC HIEN\Travel_G08\Travel_G08\obj\Debug\Travel_G08.pdb
+C:\Users\Duy\Desktop\Travel_G08\Travel_G08\obj\Debug\Travel_G08.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Desktop\Travel_G08\Travel_G08\obj\Debug\Travel_G08.dll
+C:\Users\Duy\Desktop\Travel_G08\Travel_G08\bin\Travel_G08.dll
+C:\Users\Duy\Desktop\Travel_G08\Travel_G08\bin\Travel_G08.pdb
+C:\Users\Duy\Desktop\Travel_G08\Travel_G08\bin\EntityFramework.dll
+C:\Users\Duy\Desktop\Travel_G08\Travel_G08\bin\EntityFramework.xml
+C:\Users\Duy\Desktop\Travel_G08\Travel_G08\obj\Debug\Travel_G08.pdb

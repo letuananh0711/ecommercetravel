@@ -1,0 +1,335 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@{
+    ViewBag.Title = "TRAVEL G08 Website - Tour detail service";
+    Layout = "~/Content/Frontend/_layout.cshtml";
+}
+
+@{
+    Session["CurrentUrl"] = Request.Url.ToString();
+}
+
+@section menu
+{
+    <ul>      
+        <li><a href="/Home/Index">Home</a></li>
+        <li><a href="/Home/About">About</a></li>
+        <li><a href="/Tours/Index" class="selected">Tours</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                <li><a href="/Tours/InternationalTours">International tour</a></li>
+                <li><a href="/Tours/CityTours">City tour</a></li>
+            </ul>
+        </li>
+        <li><a href="/Services/Index">Services</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Services/Airplane">Airplane</a></li>
+                <li><a href="/Services/Hotel">Hotel</a></li>
+                <li><a href="/Services/Transport">Transport</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/Contact/Index">Contact</a></li>
+    </ul>
+}
+
+
+@*<h2>@ViewBag.Message</h2>*@
+
+<!-- Main body -->
+<!-- InstanceBeginEditable name="EditRegion1" -->
+    <table align="center" width="664px" cellspacing="0" cellpadding="0" border="0">
+  <tbody><tr>
+    @*<td height="25"><span style="padding-left:6px" class="PageTitle"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbTitleTourInfo">Thông tin chi tiết tour</span></span></td>*@
+    <td height="25">
+    <div style="padding-left:6px" class="PageTitle"> Detail Informations of Tour : <a title="@ViewBag.TourDetailService.slug" style="color: #e60104;font-size:18px" href="/Tours/TourDetailInfo/?slug=@ViewBag.TourDetailService.slug">@ViewBag.TourDetailService.tenTour</a></div></td>
+  </tr>
+  <tr>
+    <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tbody><tr>
+          <td><img width="664" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_top.jpg")"></td>
+        </tr>
+        <tr>
+          <td valign="top" class="borderLR"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>
+              <td width="5">&nbsp;</td>
+              <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tbody><tr>
+                    <td height="40" bgcolor="#E0DFDF" align="right"><table width="30%" cellspacing="0" cellpadding="0" border="0">
+                      <tbody><tr>
+                        <td align="center"><img width="13" height="10" src="@Url.Content("~/Content/Frontend/images/tourprogram_icon.jpg")">&nbsp;&nbsp;<a href="/Tours/TourDetailInfo/?slug=@ViewBag.TourDetailService.slug" target="_blank">The program of tour</a></td>
+                        <td align="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>
+                        <td align="center"><img width="10" height="10" src="@Url.Content("~/Content/Frontend/images/back_icon.jpg")">&nbsp; <a href="javaScript:history.back();">Back </a></td>
+                        </tr>
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td valign="top"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tbody><tr>
+                        <td valign="top"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tbody><tr>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                              <tbody><tr>
+                                <td width="72%"><span class="Title">Tour: @ViewBag.TourDetailService.tenTour</span><br>
+																@*<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbTourCode">Mã Tour</span>: <strong>
+																	<a href="/2-1-nd1016-002-070113-2/du-lich-xe-2-da-nang-hue-phong-nha-ba-na-hoi-an.aspx" target="_self">ND1016-002-070113-2</a></strong><br>*@                                    
+                                     <span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbDepDate1">Departure date</span>: <strong>@ViewBag.TourDetailService.ngayThucHien.ToString("dd/MM/yyyy - hh:mm") |&nbsp;<a title="ngày khác" style="text-decoration:underline;cursor:pointer" href="#">Other date</a></strong><br>
+                                  @*<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbMeetingPlace">Địa điểm tập trung</span>: <strong>04:15 Sáng tại 190 Pasteur,P6,Q3( sân bay 4:50)</strong><br>*@
+                                    Nơi khởi hành: <b>@ViewBag.TourDetailService.DiaDiem.tenDiaDiem</b>
+                                  </td>
+                                <td width="28%" bgcolor="#EEEEEE" align="center"><p><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbRemainPax">Status</span></strong>: <span class="redtext" style="font-size:13px">@ViewBag.TourDetailService.trangThaiTour</span></p>
+                                  <p><a href="/Tours/BookTour/?slug=@ViewBag.TourDetailService.slug" target="_blank" style="cursor:pointer;margin-top: 0px;margin-bottom: 0px;"><img width="57" height="22" border="0" src="@Url.Content("~/Content/Frontend/images/booking.png")"></a></p></td>
+                              </tr>
+                            </tbody></table></td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                          </tr>
+                        </tbody></table></td>
+                      </tr>
+                      <tr>
+                        <td>   
+                        <div id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_pnAirline">
+	                     
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tbody><tr>
+                            <td width="2%" height="30" bgcolor="#E0DFDF">&nbsp;</td>
+                            <td height="30" bgcolor="#E0DFDF" colspan="6"><strong class="Title"><span id="Span1"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbFlightInfor">Flight information</span></span></strong></td>
+                          </tr>
+                          </tbody>
+                          </table>
+                          <br />
+                          <table width="100%" cellspacing="0" cellpadding="0" border="1">
+                          <tbody>
+                          <tr>
+							@*<td width="2%" height="25">&nbsp;</td>*@
+							<td>&nbsp;<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbDepDate"><strong>Departure date</strong>:</span>
+                                &nbsp;07/01/2013</td>
+							<td>&nbsp;<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbFlight"><strong>Flight</strong>:</span>
+                                &nbsp;VJ8380</td>
+                            <td>&nbsp;<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbFlyingtime"><strong>Flying hour</strong>:</span>
+                                &nbsp;06:20-07:30</td>
+						</tr>    
+						<tr>
+							@*<td width="2%" height="25">&nbsp;</td>*@
+                            <td>&nbsp;<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbArrDate"><strong>Returning date</strong>:</span>
+                                &nbsp;10/01/2013</td>
+							<td>&nbsp;<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbFlight1"><strong>Flight</strong>:</span>
+                                &nbsp;VJ8383</td>
+                            <td>&nbsp;<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbFlyingtime1"><strong>Flying hour</strong>:</span>
+                                &nbsp;16:55-18:05</td>
+						</tr>
+						@*<tr>
+                            <td>&nbsp;</td>
+                          </tr>*@                  
+                        </tbody></table>
+                        <br />
+                        </div>
+                        </td>
+                      </tr>							            
+                      <tr>
+                        <td>   
+                        
+                        </td>
+                      </tr>                      
+                      <tr>
+                        <td>                        
+                        <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tbody><tr>
+                            <td width="2%" height="30" bgcolor="#E0DFDF">&nbsp;</td>
+                            <td height="30" bgcolor="#E0DFDF" colspan="6"><strong class="Title"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbHotelInfor">Hotel information</span></strong></td>
+                          </tr>
+                          </tbody>
+                          </table>
+                          <br />
+                          <table width="100%" cellspacing="0" cellpadding="0" border="1">
+                          <tbody>
+                          <tr>
+                            @*<td height="30">&nbsp;</td>*@
+                            <td width="20%" align="center"><u style="margin:5px;"><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbHotelName">Hotel name</span></strong></u></td>
+                            <td width="34%" align="center"><u style="margin:5px;"><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbAddress">Address</span></strong></u></td>
+                            <td width="15%" align="center"><u style="margin:5px;"><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbPhone">Telephone number</span></strong></u></td>                            
+                            <td align="center"><u style="margin:5px;"><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbWebsite">Website</span></strong></u></td>
+                          </tr>  
+                          
+                              <tr style="margin-left:5px;">
+                                @*<td height="25" bgcolor="#EEEEEE">&nbsp;</td>*@
+                                <td bgcolor="#EEEEEE"><p style="margin:5px;">Camellia Hue</p></td>
+                                <td bgcolor="#EEEEEE"><p style="margin:5px;">57 - 59 Bến Nghé. Huế</p></td>
+                                <td bgcolor="#EEEEEE"><p style="margin:5px;">054.220550</p></td>                                
+                                <td align="center" bgcolor="#EEEEEE"><a href=#>www.camelliahue.vn</a></td>                           
+                              </tr>  
+                            
+                             <tr>
+                                @*<td height="25">&nbsp;</td>*@
+                                <td><p style="margin:5px;">KAY. DN</p></td>
+                                <td><p style="margin:5px;">357 Trần Hưng Đạo, TP.Đà Nẵng</p></td>
+                                <td><p style="margin:5px;">05113986666</p></td>                               
+                                <td align="center"><a href=#>www.kaydn.com.vn</a></td>                           
+                              </tr>  
+                                                                                               
+                        </tbody></table>
+                        </td>
+                      </tr>               
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>   
+                      <tr>
+                        <td>
+                        <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tbody><tr>
+                            <td width="2%" height="30" bgcolor="#E0DFDF">&nbsp;</td>
+                            <td height="30" bgcolor="#E0DFDF" colspan="6"><strong class="Title"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbHotelInfor">Transportation Information</span></strong></td>
+                          </tr>
+                          </tbody>
+                          </table>
+                          <br />
+                          <table width="100%" cellspacing="0" cellpadding="0" border="1">
+                          <tbody>
+                          <tr>
+                            @*<td height="30">&nbsp;</td>*@
+                            <td width="25%" align="center"><u style="margin:5px;"><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbHotelName">Name of Transportation service</span></strong></u></td>
+                            <td width="34%" align="center"><u style="margin:5px;"><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbAddress">Address</span></strong></u></td>
+                            <td width="15%" align="center"><u style="margin:5px;"><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbPhone">Telephone number</span></strong></u></td>                            
+                            <td align="center"><u style="margin:5px;"><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbWebsite">Website</span></strong></u></td>
+                          </tr>  
+                          
+                              <tr>
+                                @*<td height="25" bgcolor="#EEEEEE">&nbsp;</td>*@
+                                <td bgcolor="#EEEEEE"><p style="margin:5px;">Mai Linh</p></td>
+                                <td bgcolor="#EEEEEE"><p style="margin:5px;">64 - 68 Hai Bà Trưng Q.1 TPHCM</p></td>
+                                <td bgcolor="#EEEEEE"><p style="margin:5px;">08.38258888</p></td>                                
+                                <td align="center" bgcolor="#EEEEEE"><a href=#>www.mailinh.vn</a></td>                           
+                              </tr>  
+                            
+                             <tr>
+                                @*<td height="25">&nbsp;</td>*@
+                                <td><p style="margin:5px;">Phương Trang</p></td>
+                                <td><p style="margin:5px;">272 Đề Thám Q1 TPHCM</p></td>
+                                <td><p style="margin:5px;">08.38309309</p></td>                               
+                                <td align="center"><a href=#>www.futabuslines.com.vn </a></td>                           
+                              </tr>  
+                                                                                               
+                        </tbody></table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>                      
+                      <tr>
+                        <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tbody><tr>
+                            <td width="2%" height="30" bgcolor="#E0DFDF">&nbsp;</td>
+                            <td height="30" bgcolor="#E0DFDF" colspan="4"><strong class="Title"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbTourPriceBase">Price basic</span>&nbsp;(JPY)</strong></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                            <br />
+                            <table align="center" width="60%" cellspacing="0" cellpadding="0" border="1">
+                          <tbody>
+                          @*<tr>
+                            <td height="25">&nbsp;</td>
+                            <td height="25"><strong></strong></td>
+                            <td height="25"><p><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbVietNamese">Việt Nam</span></strong></p></td>
+                            <td height="25" align="center"><p><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbOverSeas">Việt Kiều</span></strong></p></td>
+                            <td height="25" align="center"><strong><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbForeigner">Nước Ngoài</span></strong></td>
+                          </tr>*@                          
+                            <tr>
+                            @*<td height="25" bgcolor="#EEEEEE">&nbsp;</td>*@
+                            <td height="25" bgcolor="#EEEEEE" align="center"><b><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbAdult">Người lớn (100%)</span><br>
+															(<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbnoteadult">Từ 12 tuổi trở lên</span>)</b></td>
+                            <td height="25" bgcolor="#EEEEEE" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrAdultVNPrice"><p style="margin:5px;">@ViewBag.TourDetailService.giaTour</p></span></td>
+                            @*<td height="25" bgcolor="#EEEEEE" align="center" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrAdultOPrice">6.390.000</span></td>
+                            <td height="25" bgcolor="#EEEEEE" align="center" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrAdultFPrice">6.790.000</span></td>*@
+                          </tr>
+                           <tr>
+                            @*<td height="25">&nbsp;</td>*@
+                            <td height="25" align="center"><b><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbChild">Trẻ em (70%)</span><br>
+															(<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbnoteChild">Từ 6 tuổi đến dưới 12 tuổi</span>)</b></td>
+                            <td height="25" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrChildVNPrice11"><p style="margin:5px;">@ViewBag.PriceTourChildren</p></span></td>
+                            @*<td height="25" align="center" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrChildOPrice11">6.390.000</span></td>
+                            <td height="25" align="center" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrChildFPrice11">6.790.000</span> </td>*@
+                          </tr>                          
+                          <tr>
+                            @*<td height="25" bgcolor="#EEEEEE">&nbsp;</td>*@
+                            <td height="25" bgcolor="#EEEEEE" align="center"><b><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbPretty">Trẻ nhỏ (50%)</span><br>
+															(<span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbnotePretty">Từ 2 tuổi đến dưới 6 tuổi</span>)</b></td>
+                            <td height="25" bgcolor="#EEEEEE" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrChildVNPrice"><p style="margin:5px;">@ViewBag.PriceTourKid</p></span></td>
+                            @*<td height="25" bgcolor="#EEEEEE" align="center" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrChildOPrice">4.445.000</span></td>
+                            <td height="25" bgcolor="#EEEEEE" align="center" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrChildFPrice">4.645.000</span> </td>*@
+                          </tr>                          
+                          <tr>
+                            @*<td height="25">&nbsp;</td>*@
+                            <td height="25" align="center"><b> Em bé<br>( Dưới 2 tuổi)</b></td>
+                            <td height="25" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrPrettyVNPrice"><p style="margin:5px;">Miễn phí</p></span></td>
+                            @*<td height="25" align="center" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrPrettyOPrice">2.500.000</span></td>
+                            <td height="25" align="center" class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrPrettyFPrice">2.500.000</span> </td>*@
+                          </tr>
+                        </tbody></table></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>
+                            <div id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_pnInforPrettyPriceAir">
+								<font style="FONT-STYLE: italic"><b><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbNoteAirPricePretty">Trẻ em từ 24 tháng tuổi trở xuống mua vé máy bay theo quy định của hãng hàng không</span></b></font>
+                                </div>	
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                        <br />
+                        @*<table width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tbody><tr>
+                            <td width="2%" height="30" bgcolor="#E0DFDF">&nbsp;</td>
+                            <td height="30" bgcolor="#E0DFDF"><strong class="Title"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbTourAddPriceSingleRoom">Phụ thu phòng đơn</span>(VND)</strong></td>
+                            </tr>
+                            <tr>
+                                <td width="2%" height="30">&nbsp;</td>
+                                <td height="25">
+                                <b><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbVietNamese1">Việt Nam</span></b>: <span class="redtext" id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrAdulAddPrice">1.000.000</span>&nbsp;&nbsp;
+								<b><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbOverSeas1">Việt Kiều</span></b>: <span class="redtext" id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrChildAddPrice">1.000.000</span>&nbsp;&nbsp;
+								<b><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbForeigner1">Nước Ngoài</span></b>:<span class="redtext" id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_ltrPrettyAddPrice">1.300.000</span>
+                                </td>  
+                            </tr>
+                         </tbody></table>*@                            
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="redtext"><span id="ucIndex_ThongTinTourDM_ucThongTinTourDM1_lbNote">Liên hệ thêm</span>: TRAVEL_G08 - 0901 12 013 (Vé khuyến mãi không hoàn, không dời, đổi, hủy mất 100%)</td>
+                      </tr>
+                      <tr>
+                        <td><br /></td>
+                      </tr>                       
+                    </tbody></table></td>
+                    </tr>
+                  
+                  <tr>
+                    <td height="40" bgcolor="#E0DFDF" align="right"><table width="41%" cellspacing="0" cellpadding="0" border="0">
+                      <tbody><tr>
+                        <td align="center"><img width="13" heigt="10" src="@Url.Content("~/Content/Frontend/images/tourprogram_icon.jpg")">&nbsp;&nbsp;<a href="/2-1-nd1016-002-070113-2/du-lich-xe-2-da-nang-hue-phong-nha-ba-na-hoi-an.aspx">Chương trình tour</a></td>
+                        <td halign="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>
+                        <td align="center"><img width="10" height="10" src="@Url.Content("~/Content/Frontend/images/back_icon.jpg")">&nbsp; <a href="javaScript:history.back();">Trở về </a></td>
+                        <td align="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>
+                        <td align="center"><a href="/du-lich/2-15cea3c0-3f13-4dfe-a9fc-c76f6b29136f/dat-tour-trong-nuoc.aspx" style="cursor:pointer;margin-top: 0px;margin-bottom: 0px;"><img width="57" height="22" border="0" src="@Url.Content("~/Content/Frontend/images/booking.png")"></a></td>
+                      </tr>
+                    </tbody></table></td>
+                  </tr>
+              </tbody></table></td>
+              <td width="5">&nbsp;</td>
+            </tr>
+          </tbody></table></td>
+        </tr>
+        <tr>
+          <td><img width="664" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_bottom.jpg")"></td>
+        </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>
+	<!-- InstanceEndEditable -->

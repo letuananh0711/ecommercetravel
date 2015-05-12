@@ -1,0 +1,201 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+                                         
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>@ViewBag.Title</title>
+<!-- TemplateEndEditable -->
+
+<meta name="keywords" content="TRAVEL G08 Website, TRAVEL G08, TRAVEL Website, TRAVEL" />
+<meta name="description" content="Travel G08 Website - This is our wolrd" />
+<link href="@Url.Content("~/Content/Frontend/css/templatemo_style.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="@Url.Content("~/Content/Frontend/js/jquery-1-4-2.min.js")"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="@Url.Content("~/Content/Frontend/js/jquery-ui.min.js")"></script> 
+<script type="text/javascript" src="@Url.Content("~/Content/Frontend/js/showhide.js")"></script> 
+<script type="text/JavaScript" src="@Url.Content("~/Content/Frontend/js/jquery.mousewheel.js")"></script> 
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Frontend/css/ddsmoothmenu.css")" />
+
+<script type="text/javascript" src="@Url.Content("~/Content/Frontend/js/jquery.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Frontend/js/ddsmoothmenu.js")"></script>
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<!-- Load the CloudCarousel JavaScript file -->
+<script type="text/javaScript" src="@Url.Content("~/Content/Frontend/js/cloud-carousel.1.0.5.js")"></script>
+ 
+<script type="text/javascript">
+$(document).ready(function(){
+						   
+	// This initialises carousels on the container elements specified, in this case, carousel1.
+	$("#carousel1").CloudCarousel(		
+		{			
+			reflHeight: 40,
+			reflGap:2,
+			titleBox: $('#da-vinci-title'),
+			altBox: $('#da-vinci-alt'),
+			buttonLeft: $('#slider-left-but'),
+			buttonRight: $('#slider-right-but'),
+			yRadius:30,
+			xPos: 480,
+			yPos: 32,
+			speed:0.15,
+		}
+	);
+});
+ 
+</script>
+
+<link href="@Url.Content("~/Content/Frontend/css/style.css")" type="text/css" rel="stylesheet"/>
+<script src="@Url.Content("~/Content/Frontend/js/panel-search-zone.js")" type="text/javascript"></script>
+
+<script src="@Url.Content("~/Content/Frontend/js/scrolltopcontrol.js")" type="text/javascript"></script>
+
+<link href="@Url.Content("~/Content/Frontend/css/quicksearch.css")" type="text/css" rel="Stylesheet" />
+
+<!-- Xác nhận sign out -->
+<script type="text/javascript">
+    function LogOutPopUp() {
+        if (confirm("Do you really want to logout? If yes, website will be redirected to the homepage immediately!") == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+
+@RenderSection("scripts", false)
+
+<!-- TemplateBeginEditable name="head" -->
+
+<!-- TemplateEndEditable -->
+</head>
+
+<body id="home">
+<div id="templatemo_header_wrapper">
+	<div id="site_title">
+	  <h1><a href="http://www.travelg08.somee.com">TRAVEL G08</a></h1></div>
+     <div id="templatemo_menu" class="ddsmoothmenu">
+     @RenderSection("menu")
+       
+        <br style="clear: left" />
+  </div> <!-- end of templatemo_menu -->
+  <div>
+    <form id="search" method="post" action="/Home/QuickSearch">
+        <input name="_keyQuickSearch" type="text" size="40" placeholder="Search..." />
+    </form>
+  </div>
+  <!--Sign in + Sign up -->
+  <div id="signin_signup">
+ 
+  @if (Session["IsLogin"] == null)
+  {
+      <a href="/Account/Login" target="_parent">Sign in</a> @Html.Raw(" | ")
+      <a href="/Account/Register" target="_parent">Sign up</a>
+  }
+  else
+  {
+      <a style="float:left; margin:auto; font-size:15px;" href="/Account/AccountDetailInfo/?id=@Session["ID"]">WELCOME @Session["Name"]</a><br />
+      <p style="font-family: Tahoma,Geneva,sans-serif; float:right; color: #C11717; font-size:13px; margin:auto;" href="#">You are @Session["Role"]</p><br />
+      <a style="float:right; margin:auto; font-size:13px;" href="/Account/Logout" onclick="return LogOutPopUp()">Sign out</a>
+  }
+  
+  
+  </div>
+  <!--End of sign in + sign up -->
+    <div class="cleaner"></div>
+</div>	<!-- END of templatemo_header_wrapper -->
+<div id="templatemo_slider">
+	<!-- This is the container for the carousel. -->
+    <div id = "carousel1" style="width:960px; height:280px;background:none;overflow:scroll; margin: 20px auto 0">            
+        <!-- All images with class of "cloudcarousel" will be turned into carousel items -->
+        <!-- You can place links around these images -->
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="@Url.Content("~/Content/Frontend/images/slider/01.jpg")" alt="CSS Templates 1" title="Website Templates 1" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="@Url.Content("~/Content/Frontend/images/slider/02.jpg")" alt="CSS Templates 2" title="Website Templates 2" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="@Url.Content("~/Content/Frontend/images/slider/03.jpg")" alt="CSS Templates 3" title="Website Templates 3" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="@Url.Content("~/Content/Frontend/images/slider/04.jpg")" alt="CSS Templates 4" title="Website Templates 4" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="@Url.Content("~/Content/Frontend/images/slider/05.jpg")" alt="Flash Templates 1" title="Flash Templates 1" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="@Url.Content("~/Content/Frontend/images/slider/06.jpg")" alt="Flash Templates 2" title="Flash Templates 2" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="@Url.Content("~/Content/Frontend/images/slider/07.jpg")" alt="Flash Templates 3" title="Flash Templates 3" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="@Url.Content("~/Content/Frontend/images/slider/08.jpg")" alt="Flash Templates 4" title="Flash Templates 4" /></a>
+    </div>
+    
+    <!-- Define left and right buttons. -->
+    <center>
+    <input id="slider-left-but" type="button" value="" />
+    <input id="slider-right-but" type="button" value="" />
+    </center>
+</div>
+
+<div id="templatemo_main">
+	@RenderBody()
+	<!-- TemplateBeginEditable name="EditRegion1" -->
+	<!-- TemplateEndEditable -->
+    
+    <!-- TemplateBeginEditable name="EditRegion2" -->
+	<!-- TemplateEndEditable -->
+    
+</div> <!-- END of templatemo_main -->
+
+<div id="templatemo_bottom_wrapper">
+    <div id="templatemo_bottom">
+    	<div class="col one_third">
+        	<h4><span></span>TOURS</h4>
+            <div class="bottom_box">
+                <ul class="footer_list">
+                    <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                    <li><a href="/Tours/InternationalTours">International tour</a></li>
+                    <li><a href="/Tours/CityTours">City tour</a></li>
+                </ul>  
+			</div>
+        </div>
+        <div class="col one_third">
+        	<h4><span></span>SERVICES</h4>
+            <div class="bottom_box">
+                <ul class="footer_list">
+                    <li><a href="/Services/Airplane">Airplane</a></li>
+                    <li><a href="/Services/Hotel">Hotel</a></li>
+                    <li><a href="/Services/Transport">Transport</a></li>
+                </ul>
+			</div>
+        </div>
+        <div class="col one_third no_margin_right">
+        	<h4><span></span>ABOUT US</h4>
+            <div class="bottom_box">
+                <p><em>TRAVEL G08 Website<br/>Team G08 - Big Module TRAVEL<br/>Project E-Commerce<br/>IT HCMUS 2012</em></p><br />              
+                <div class="footer_social_button">
+                    <a href="#"><img src="@Url.Content("~/Content/Frontend/images/facebook.png")" title="facebook" alt="facebook" /></a>
+                    <a href="#"><img src="@Url.Content("~/Content/Frontend/images/flickr.png")" title="flickr" alt="flickr" /></a>
+                    <a href="#"><img src="@Url.Content("~/Content/Frontend/images/twitter.png")" title="twitter" alt="twitter" /></a>
+                    <a href="#"><img src="@Url.Content("~/Content/Frontend/images/youtube.png")" title="youtube" alt="youtube" /></a>
+                    <a href="#"><img src="@Url.Content("~/Content/Frontend/images/feed.png")" title="rss" alt="rss" /></a>
+                </div>
+            </div>
+        </div>
+        
+    	<div class="cleaner"></div>
+    </div> <!-- END of tempatemo_bottom -->
+</div> <!-- END of tempatemo_bottom_wrapper -->
+
+<div id="templatemo_footer_wrapper">
+    <div id="templatemo_footer">
+    	Copyright © 2012 TRAVEL G08 WEBSITE | Designed by <a href="http://www.travelg08.somee.com" target="_blank">TRAVEL G08 - IT HCMUS</a>
+    </div> <!-- END of templatemo_footer_wrapper -->
+</div> <!-- END of templatemo_footer -->
+
+</body>
+</html>

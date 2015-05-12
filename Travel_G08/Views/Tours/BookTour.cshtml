@@ -1,0 +1,321 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@{
+    ViewBag.Title = "TRAVEL G08 Website - Booking tour";
+    Layout = "~/Content/Frontend/_layout.cshtml";
+}
+
+@{
+    Session["CurrentUrl"] = Request.Url.ToString();
+}
+
+@section scripts
+{
+    <!--Date Picker-->
+    <link href="@Url.Content("~/Content/Frontend/css/jquery.datepick.css")" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="@Url.Content("~/Content/Frontend/js/jquery.datepick.js")"></script>
+    <script src="@Url.Content("~/Content/Frontend/js/jquery.mousewheel.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#popupDatepicker1').datepick();
+        });
+    </script>
+
+    <!--Book tour-->
+    <script type="text/javascript" src="@Url.Content("~/Content/Frontend/js/book-tour.js")"></script>
+    <style>.error_strings{ font-family:Verdana; font-size:12px; color:red;}</style>
+
+    <!-- Xác nhận book tour -->
+<script type="text/javascript">
+    function BookTourConfirm() {
+        if (confirm("Do you want to book tour? If succeeded, website will be redirected to your book tour information!") == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+}
+
+@section menu
+{
+    <ul>      
+        <li><a href="/Home/Index">Home</a></li>
+        <li><a href="/Home/About">About</a></li>
+        <li><a href="/Tours/Index" class="selected">Tours</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                <li><a href="/Tours/InternationalTours">International tour</a></li>
+                <li><a href="/Tours/CityTours">City tour</a></li>
+            </ul>
+        </li>
+        <li><a href="/Services/Index">Services</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Services/Airplane">Airplane</a></li>
+                <li><a href="/Services/Hotel">Hotel</a></li>
+                <li><a href="/Services/Transport">Transport</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/Contact/Index">Contact</a></li>
+    </ul>
+}
+
+
+@*<h2>@ViewBag.Message</h2>*@
+
+<!-- Main body -->
+<!-- InstanceBeginEditable name="EditRegion1" -->
+
+    <form name="tour_booking" method="post" action="/Tours/BookTour">
+     	<table name="tableContact" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td height="30" >
+                    <p style="color:#E60104; font-size:15px">Tour: <u>@ViewBag.BookTour.tenTour</u></p>
+                    <input type="hidden" name="maTour" value="@ViewBag.BookTour.maTour" />
+                    <input type="hidden" name="maKhachHang" value="@Session["ID"]" />
+                </td>
+            </tr>
+            <tr>
+				<td height="30" bgcolor="#E0DFDF">
+					<strong style="margin-left:10px;" class="BookingTourTitle"><span id="id_lbContactInformation">Contact Information</span></strong>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td>
+								<table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top: 15px">
+									<tr>
+										<td>
+
+                                            <!-- Nếu account đăng nhập thì tự động điền thông tin vào form -->
+                                            @if(Session["IsLogin"] != null && Session["Role"] == "Customer")
+                                            {
+                                                <table width="100%" cellpadding="2" border="0">
+												<tr>
+													<td colspan="4" style="text-align:right">
+														<span class="redtext">*</span>
+														<i>Indicate required fields</i>
+													</td>
+												</tr>
+												<tr>
+													<td valign="top">
+														<span id="id_lbHoTen">Full name</span><span class="redtext">*</span>
+													</td>
+													<td valign="top">
+														<input value="@Session["Name"]" name="txtHoTen" type="text" id="id_txtHoTen" placeholder="give me your name, please!" style="width:350px;" />
+													</td>
+													<td valign="top">
+														<span id="id_lbDiaChi">Address</span>
+													</td>
+													<td valign="top">
+														<input  value="@Session["Address"]" name="txtDiaChi" type="text" id="id_txtDiaChi" placeholder="where you are living?" style="width:350px;" />
+													</td>
+												</tr>							
+												<tr>
+													<td>
+														<span id="id_lbDTDiDong">Phone number</span> <span class="redtext">*</span>
+													</td>
+													<td>
+														<input  value="@Session["Phone"]" name="txtDTDiDong" type="text" id="id_txtDTDiDong" placeholder="your telephone or mobile phone number" style="width:350px;" />
+													</td>
+													<td valign="top">
+														<span id="id_lbEmail">Email</span> <span class="redtext">*</span>
+													</td>
+													<td valign="top">
+														<input value="@Session["Email"]" readOnly="true" name="txtEmail" type="email" id="id_txtEmail" placeholder="ex: abc@gmail.com" style="width:350px;" />												
+													</td>
+												</tr>
+												<tr>													
+													<td>
+														<span id="id_lbTIN">TIN</span>
+													</td>
+													<td>
+														<input  value="@Session["BankAccountID"]" name="txtTIN" type="text" id="id_txtTIN" placeholder="give me your tax identification number (TIN)" style="width:350px;" />
+													</td>
+												</tr>
+											</table>
+                                            }
+                                            <!-- End of Nếu account đăng nhập thì tự động điền thông tin vào form -->
+                                            <!-- Nếu account chưa đăng nhập thì thông tin form trống -->
+                                            @if(Session["IsLogin"] == null || Session["Role"] != "Customer")
+                                            {
+                                                <table width="100%" cellpadding="2" border="0">
+												<tr>
+													<td colspan="4" style="text-align:right">
+														<span class="redtext">*</span>
+														<i>Indicate required fields</i>
+													</td>
+												</tr>
+												<tr>
+													<td valign="top">
+														<span id="id_lbHoTen">Full name</span><span class="redtext">*</span>
+													</td>
+													<td valign="top">
+														<input name="txtHoTen" type="text" id="id_txtHoTen" placeholder="give me your name, please!" style="width:350px;" />
+													</td>
+													<td valign="top">
+														<span id="id_lbDiaChi">Address</span>
+													</td>
+													<td valign="top">
+														<input name="txtDiaChi" type="text" id="id_txtDiaChi" placeholder="where you are living?" style="width:350px;" />
+													</td>
+												</tr>							
+												<tr>
+													<td>
+														<span id="id_lbDTDiDong">Phone number</span> <span class="redtext">*</span>
+													</td>
+													<td>
+														<input name="txtDTDiDong" type="text" id="id_txtDTDiDong" placeholder="your telephone or mobile phone number" style="width:350px;" />
+													</td>
+													<td valign="top">
+														<span id="id_lbEmail">Email</span> <span class="redtext">*</span>
+													</td>
+													<td valign="top">
+														<input name="txtEmail" type="email" id="id_txtEmail" placeholder="ex: abc@gmail.com" style="width:350px;" />												
+													</td>
+												</tr>
+												<tr>													
+													<td>
+														<span id="id_lbTIN">TIN</span>
+													</td>
+													<td>
+														<input name="txtTIN" type="text" id="id_txtTIN" placeholder="give me your tax identification number (TIN)" style="width:350px;" />
+													</td>
+												</tr>
+											</table>
+                                            }
+											<!-- End of Nếu account chưa đăng nhập thì thông tin form trống -->
+
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table width="100%" border="0" cellspacing="0" cellpadding="2">
+									 <tr>
+										<td width="19%">
+											<span id="id_lbGuests">Total Passengers</span>&nbsp;
+											<input style="width: 40px" readOnly="true" type="text" size="2" value="1" name="txt_tongSoKhach">
+										</td>
+										<td width="19%">
+											<span id="id_lbAdult">Adult</span>&nbsp;
+											<input onblur="setValue();clear_text(this)" style="width: 40px" type="text" size="1" value="1" id="txt_soNguoiLon" name="txt_soNguoiLon" onclick="javascript:show_text('From 12 years old',this)">
+										</td>
+										<td width="19%">
+											<span id="id_lbChild">Children</span>&nbsp;
+											<input onblur="setValue();clear_text(this);" style="width: 40px" type="text" size="1" value="0" id="txt_soTreEm" name="txt_soTreEm" onclick="javascript:show_text('From 5 to 12 years old',this)"/>                                                                                                
+										</td>
+										<td width="19%">
+											<span id="id_lbBaby">Baby</span>
+											<input onblur="setValue();clear_text(this);" style="width: 40px" type="text" size="1" value="0" id="txt_soTreNho" name="txt_soTreNho" onclick="javascript:show_text('Under 5 years old',this)">
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+		<table id="tableCustomer" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td colspan="7" height="30" bgcolor="#E0DFDF">
+					<strong style="margin-left:10px;" class="BookingTourTitle"><span id="id_ListCustommer">List of Passengers</span></strong>&nbsp;&nbsp;&nbsp;<span id="id_ListCustommer">(Please fill out all the information about persons who will take part in this tour)</span>
+				</td>
+			</tr>
+			<tr>
+				<td align="center"><span id="id_lbFullName">Full name</span><span class="redtext">*</span></td>
+				<td align="center"><span id="id_lbDOB">Date of Birth</span></td>
+				<td align="center"><span id="id_lbAdress1">Address</span></td>
+				<td align="center"><span id="id_lbGender">Gender</span></td>
+				<td align="center"><span id="id_lbAge">Age</span></td>
+				@*<td align="center"><span id="id_lbSingleRoom">Single room</span></td>*@
+				<td align="center"><span id="id_lbAmount">Price</span></td>                        
+			</tr>
+			<tr>
+				<td width="15%">
+                	<input id="txt_hoTenKhachHang[]" type="text" name="txt_hoTenKhachHang[]" style="width:200px;" onclick="javascript:show_text('Give me a name',this)" onblur="setValue();clear_text(this);" onchange="updateDsKhachHang();"/>
+					<div id='errorNameClient[]' name='errorNameClient[]' class='error_strings'></div>
+				</td>
+				<td width="15%">
+					<input id="txt_ngaySinh" name="txt_ngaySinh[]" type="date" style="width:150px;"  onchange="updateDsKhachHang();" required="required"/>
+					<div id='errorBirthday[]' name='errorBirthday[]' class='error_strings'></div>
+				</td>
+				<td width="10%">
+					<input id="txt_diaChi[]" type="text" name="txt_diaChi[]" style="width:200px;" onclick="javascript:show_text('Give me a address',this)" onblur="setValue();clear_text(this);" onchange="updateDsKhachHang();"/>
+					<div id='errorAddress[]' name='errorAddress[]' class='error_strings'></div>
+				</td>
+				<td width="5%">
+					<select name="cb_gioiTinh[]" onchange="updateDsKhachHang();">
+						<option value="Nữ">Nữ</option>
+						<option value="Nam">Nam</option>
+					</select>
+				</td>
+				<td width="5%">
+					<select name="cb_doTuoi[]" onchange="updateDsKhachHang();">
+						<option value="Người lớn">Người lớn</option>
+						<option value="Trẻ em">Trẻ em</option>
+						<option value="Trẻ nhỏ">Trẻ nhỏ</option>
+					</select>
+				</td>
+				@*<td width="5%">
+					<select name="typeRoom" style="width:65px;">
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</td>*@
+				<td width="10%">
+					<input name="txt_giaTour" type="text" id="txt_giaTour" disabled />
+				</td>
+			</tr>
+            <tr>
+				<td colspan="6">
+					<span id="id_lbFormatDate">(Date format: mm/dd/yyyy) </span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong style="margin-left:10px;"><span id="id_lbNote">Note</span></strong>
+				</td>
+                <td colspan="5" >
+                    <br />
+                    <textarea onkeyup="limiter();" wrap="physical" rows="3" cols="40" name="txtGhiChu" id="id_txtGhiChu" style="width:485px; height:100px;"></textarea>
+                    <br />
+                    <p>Character left: 
+                    <script type="text/javascript">
+                        document.write("<input type=text name=limit size=1 readonly value=" + count + ">");
+                    </script></p>
+
+                    <textarea style="display:none" cols="40" rows="3" id="dsTongKet" name="dsTongKet"></textarea>
+                </td>
+			</tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+
+		</table>
+
+		 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr height="40" align="right" bgcolor="#E0DFDF" colspan="7">
+				<td>
+                	<input type="hidden" name="btnDangKyTour" id="id_btnDangKyTour" value="Book now!" onclick="BookTourConfirm();" />
+					<input style="margin-right:10px;" type="button" name="btnKiemTra" id="id_btnKiemTra" value="Check" onclick="checkValue();" />
+				</td>
+			</tr>
+            <tr>
+                <td style="height:30px;"></td>
+            </tr>
+		</table>
+	</form>
+
+           
+	<!-- InstanceEndEditable -->

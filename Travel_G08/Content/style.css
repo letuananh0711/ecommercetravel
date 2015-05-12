@@ -1,0 +1,72 @@
+
+#toolbox {
+    background: url("images/bg_toolbox_tab.png") repeat-x scroll center bottom #0EB4C8;
+}
+#toolbox a, ul.summarystats p.statview a {
+    color: #0F525B;
+    text-shadow: 1px 1px 1px #68C5D1;
+}
+ul#sliderContent li a {
+    background: url("images/toolbox_row.png") repeat-x scroll center top transparent;
+    color: #FFFFFF;
+}
+ul#sliderContent li.alt a {
+    background: url("images/toolbox_alt_row.png") repeat-x scroll center top transparent;
+    color: #FFFFFF;
+}
+ul#sliderContent li a:hover, ul#sliderContent li.alt a:hover {
+    background: none repeat scroll 0 0 #138392;
+}
+ul.summarystats p.statview a {
+    background: url("images/bg_btns.png") repeat-x scroll center top transparent;
+}
+ul.summarystats p.statview a:hover {
+    background: url("images/bg_btns.png") repeat scroll 0 -30px transparent;
+    color: #FFFFFF;
+    text-shadow: none;
+}
+ul#nav li a.heading, a.collapsed, a.expanded, ul.navigation li.selected {
+    background: url("../../Content/img/bg_navigation_links.png") no-repeat scroll center top #A7A7A7;
+}
+ul#nav li a.collapsed:hover {
+    background: url("../../Content/img/bg_navigation_links.png") repeat scroll 0 -40px #A7A7A7;
+}
+ul#nav li a.expanded {
+    background: url("../../Content/img/bg_navigation_links.png") repeat scroll 0 -80px #A7A7A7;
+}
+ul#nav li a.expanded:hover {
+    background: url("../../Content/img/bg_navigation_links.png") repeat scroll 0 -120px #A7A7A7;
+}
+.btn, .btnalt {
+    background: url("../../Content/img/bg_btns.png") repeat-x scroll center top transparent;
+    border: medium none;
+    color: #0F525B;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 15px;
+    text-shadow: 1px 1px 1px #68C5D1;
+}
+.btn:hover {
+    background: url("../../Content/img/bg_btns.png") repeat scroll 0 -30px transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    text-shadow: none;
+}
+.btnalt {
+    background: url("../../Content/img/bg_btns_alt.png") repeat-x scroll center top transparent !important;
+    color: #666666;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+.btnalt:hover {
+    background: url("../../Content/img/bg_btns_alt.png") repeat scroll 0 -30px transparent !important;
+    color: #333333;
+    cursor: pointer;
+}
+ul.pagination li.page a {
+    background: url("../../Content/img/bg_btns.png") repeat-x scroll center top transparent;
+    border: 1px solid #1B9CAF;
+    color: #FFFFFF;
+}
+ul.pagination li.page a:hover {
+    background: url("../../Content/img/bg_btns.png") repeat scroll 0 -30px transparent;
+}

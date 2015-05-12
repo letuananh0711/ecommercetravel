@@ -1,0 +1,142 @@
+﻿@model IEnumerable<Travel_G08.TaiKhoan>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/admin_layout.cshtml";
+}
+@if (Session["IsLogin"] == null)
+{
+    Response.Redirect("Login");
+}
+@section scripts
+{
+    <script type="text/javascript">
+        function GetConfirmation() {
+            var reply = confirm("Are you sure you want to delete this?");
+            if (reply) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        $(document).ready(function () {
+            keepSystemHeadingState();
+        });
+    </script>
+}
+<div id="right" style="width:1130px;height:560px;overflow:auto;">
+    <div id="content">
+        <div class="container">       
+            <div class="conthead">
+                <h2>Account list:</h2>
+             </div>
+             <div class="contentbox">
+             <ul class="breadcrumb">
+                <li>@Html.ActionLink("Home page", "Index", "Admin")</li> /
+                <li>@Html.ActionLink("List account", "DanhSach", "TaiKhoan")</li> / 
+            </ul>
+                @Html.ActionLink("New account", "Them", "TaiKhoan", new { @class = "btn btn-primary pull-right" })
+                <table width="100%">
+                    <thead>
+                        <th>ID</th>
+                        <th width="250px">Account type</th>
+                        <th width="250px">Email</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th><input name="" value="" id="checkboxall" type="checkbox"></th>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.count == 0)
+                        {
+                            <tr>
+                                <td colspan="6">No result found.</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            int i = 0;
+                            foreach (var s in Model)
+                            {
+                                if (i % 2 == 0)
+                                {
+                                    <tr class="alt">
+                                        <td>@s.maTaiKhoan</td>
+                                        <td>@s.LoaiTaiKhoan.tenLoaiTaiKhoan</td>
+                                        <td>@s.email</td>
+                                        @{string trangThai = @s.trangThai;}
+                                        @switch (trangThai)
+                                        {
+                                            case "Mở":
+                                                <td>
+                                                    <span class="label btn-primary">Mở</span>
+                                                </td>
+                                                break;
+                                            case "Khóa":
+                                                <td>
+                                                    <span class="label btn-danger">Khóa</span>
+                                                </td>
+                                                break;
+                                            case "Chưa xác nhận":
+                                                    <td>
+                                                        <span class="label btn-warning">Chưa xác nhận</span>
+                                                    </td>
+                                                break;
+                                        }
+                                         <td>                     
+                                            <a href="@Url.Action("Sua", "TaiKhoan", new { ID = @s.maTaiKhoan })" title=""><img src="../../../Content/img/icon_edit.png" alt="Edit"></a>
+                                            <a href="@Url.Action("Xoa", "TaiKhoan", new { ID = @s.maTaiKhoan })" title="" class="delete-row" onclick="return GetConfirmation();"><img src="../../../Content/img/icon_delete.png" alt="Delete"></a>
+                                        </td>
+                                            <td><input value="" name="checkall" type="checkbox"/></td>
+                                    </tr>
+                                        i++;
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td>@s.maTaiKhoan</td>
+                                        <td>@s.LoaiTaiKhoan.tenLoaiTaiKhoan</td>
+                                        <td>@s.email</td>
+                                        @{string trangThai = @s.trangThai;}
+                                        @switch (trangThai)
+                                        {
+                                            case "Mở":
+                                                <td>
+                                                    <span class="label btn-primary">Mở</span>
+                                                </td>
+                                                break;
+                                            case "Khóa":
+                                                <td>
+                                                    <span class="label btn-danger">Khóa</span>
+                                                </td>
+                                                break;
+                                            case "Chưa xác nhận":
+                                                    <td>
+                                                        <span class="label btn-warning">Chưa xác nhận</span>
+                                                    </td>
+                                                break;
+                                        }
+                                         <td>                     
+                                            <a href="@Url.Action("Sua", "TaiKhoan", new { ID = @s.maTaiKhoan })" title=""><img src="../../../Content/img/icon_edit.png" alt="Edit"></a>
+                                            <a href="@Url.Action("Xoa", "TaiKhoan", new { ID = @s.maTaiKhoan })" title="" class="delete-row" onclick="return GetConfirmation();"><img src="../../../Content/img/icon_delete.png" alt="Delete"></a>
+                                        </td>
+                                            <td><input value="" name="checkall" type="checkbox"/></td>
+                                    </tr>
+                                        i++;
+                                }
+                            }
+                        }
+                    </tbody>            
+                </table>
+                <div class="pagination clearfix">
+                    @if ((string)ViewData["pageLinks"] != "")
+                    {
+                        <ul>
+                            @Html.Raw(ViewBag.pageLinks)
+                        </ul>
+                        <br />
+                        <br />
+                    }
+                </div>
+             </div>
+        </div>
+    </div>
+</div>

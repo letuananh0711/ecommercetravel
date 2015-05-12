@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/admin_layout.cshtml";
+}
+@if (Session["IsLogin"] == null)
+{
+    Response.Redirect("Login");
+}
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            keepSystemHeadingState();
+        });
+    </script>
+}
+<div id="right" style="width:1130px;height:560px;overflow:auto;">
+    <div id="content">
+        <div class="container">       
+            <div class="conthead">
+                <h2>Edit customer:</h2>
+             </div>
+             <div class="contentbox">
+             <ul class="breadcrumb">
+                <li>@Html.ActionLink("Home page", "Index", "Admin")</li> /
+                <li>@Html.ActionLink("List customer", "DanhSach", "KhachHang")</li> / 
+                <li>@Html.ActionLink("Edit customer", "Sua", "KhachHang", new { ID = @ViewBag.khachHang.maKhachHang })</li>
+            </ul>
+                 <form name="myForm" action="Sua" method="post" class="form-horizontal" enctype="multipart/form-data">
+                         @if(ViewBag.Error != null)
+                         {
+                            <div class="status error">
+                                <p class="closestatus"><a href="" title="Close">x</a></p>
+                                <p><img src="../../../Content/img/icon_error.png" alt="Error">
+	                            <span>Error! @ViewBag.Error</span></p>
+                            </div>
+                         }
+                         @if (ViewBag.Message != null)
+                         {
+                            <div class="status success">
+                                <p class="closestatus"><a href="" title="Close">x</a></p>
+                                <p><img src="../../../Content/img/icon_approve.png" alt="Error">
+                                <span>@ViewBag.Message!</span></p>
+                            </div>
+                         }
+                         <div class="control-group">
+                             <label class="control-label">Name</label>
+                             <div class="controls">
+                                <input type="text" name="name" value="@ViewBag.khachHang.hoTen"/>
+                             </div>
+                         </div>
+                         <div class="control-group">
+                             <label class="control-label">Address</label>
+                             <div class="controls">
+                                <input type="text" name="address" value="@ViewBag.khachHang.diaChi"/>
+                             </div>
+                         </div>
+                         <div class="control-group">
+                             <label class="control-label">Phone</label>
+                             <div class="controls">
+                                <input type="text" name="phone" value="@ViewBag.khachHang.soDienThoai"/>
+                             </div>
+                         </div>
+                         <div class="control-group">
+                             <label class="control-label">Bank account ID</label>
+                             <div class="controls">
+                                <input type="text" name="phone" value="@ViewBag.khachHang.soTaiKhoanNganHang"/>
+                             </div>
+                         </div> 
+                         <input name="ID" type="hidden" value="@ViewBag.khachHang.maKhachHang"/>
+                         <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Apply</button>
+                            @Html.ActionLink("Exit", "DanhSach", "KhachHang", new { @class = "btn btn-inverse" })
+                         </div>
+                 </form>              
+             </div>            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Admin Panel: Login";
+}   </script>
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/login_form.css")" rel="Stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/main.css")" rel="Stylesheet" type="text/css"/>
+    @*<link href="@Url.Content("~/Content/bootstrap.css")" rel="Stylesheet" type="text/css"/>*@
+    @*<script src="@Url.Content("~/Scripts/bootstrap.js")" type="text/javascript"></script>*@
+</head>
+<body>
+    
+    <div id="logincontainer">
+    @if (ViewBag.Error != null)
+    {
+        <div class="status error">
+            <p class="closestatus"><a href="" title="Close">x</a></p>
+            <p><img src="../../Content/img/icon_error.png" alt="Error">
+	        <span>Error! @ViewBag.Error</span></p>
+        </div>
+    }
+    	<h1>Travel_G08<span>access</span></h1>
+        <div id="loginbox">
+        	<form action="../Admin/Login" method="post">
+                <div class="inputcontainer">
+                    <img src="../../Content/img/icon_username.png" alt="Username"/>
+                    <label for="username">Username:</label>
+                    <input name="username" type="text"/>
+                </div>
+                <div class="inputcontainer">
+                    <img src="../../Content/img/icon_locked.png" alt="Password"/>
+                    <label for="password">Password:</label>
+                    <input name="password" type="password"/>
+                </div>
+                <input value="Login" class="loginsubmit" type="submit"/>
+                <p><a href="#">Forgotten password</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

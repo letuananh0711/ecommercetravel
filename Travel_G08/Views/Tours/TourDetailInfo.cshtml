@@ -1,0 +1,157 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@{
+    ViewBag.Title = "TRAVEL G08 Website - Tour detail information";
+    Layout = "~/Content/Frontend/_layout.cshtml";
+}
+
+@{
+    Session["CurrentUrl"] = Request.Url.ToString();
+}
+
+@section menu
+{
+    <ul>      
+        <li><a href="/Home/Index">Home</a></li>
+        <li><a href="/Home/About">About</a></li>
+        <li><a href="/Tours/Index" class="selected">Tours</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                <li><a href="/Tours/InternationalTours">International tour</a></li>
+                <li><a href="/Tours/CityTours">City tour</a></li>
+            </ul>
+        </li>
+        <li><a href="/Services/Index">Services</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Services/Airplane">Airplane</a></li>
+                <li><a href="/Services/Hotel">Hotel</a></li>
+                <li><a href="/Services/Transport">Transport</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/Contact/Index">Contact</a></li>
+    </ul>
+}
+
+
+@*<h2>@ViewBag.Message</h2>*@
+
+<!-- Main body -->
+<!-- InstanceBeginEditable name="EditRegion1" -->
+    <table align="center" width="664px" cellspacing="0" cellpadding="0" border="0">    
+  <tbody><tr>
+    <td height="25">
+    <!-- Breadcumb -->
+    <div style="padding-left:6px" class="PageTitle">@*<span style="font-size:13px">Trang chủ &gt;&gt; <a href="/du-lich-viet-nam.aspx" style="color: #e60104" title="Vietravel">Du lịch Việt Nam</a> &gt;&gt; <a href="/du-lich/21/39/du-lich-hue.aspx" style="color: #e60104" title="Tour Huế"> du lịch Huế</a> - <a href="/du-lich/21/41/du-lich-quang-binh.aspx" style="color: #e60104" title="Tour Quảng Bình"> du lịch Quảng Bình</a> - <a href="/du-lich/21/42/du-lich-da-nang.aspx" style="color: #e60104" title="Tour Đà Nẵng"> du lịch Đà Nẵng</a> - <a href="/du-lich/21/43/du-lich-quang-nam.aspx" style="color: #e60104" title="Tour Quảng Nam"> du lịch Quảng Nam</a></span><br>*@
+    
+    The program of tour: <a title="@ViewBag.TourDetailInfo.slug" style="color: #e60104;font-size:18px" href="#">@ViewBag.TourDetailInfo.tenTour</a> </div></td>
+  </tr>
+  <tr>
+    <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tbody><tr>
+          <td><img width="664" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_top.jpg")"></td>
+        </tr>
+        <tr>
+          <td valign="top" class="borderLR"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>
+              <td width="5">&nbsp;</td>
+              <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tbody><tr>
+                    <td height="40" bgcolor="#E0DFDF" align="right"><table width="35%" cellspacing="0" cellpadding="0" border="0">
+                      <tbody><tr>
+                        @*<td align="center"><img width="11" height="10" src="@Url.Content("~/Content/Frontend/images/print_icon.jpg")">&nbsp;&nbsp;<a href="/du-lich/2-nd1016-002-070113-2/in-chuong-trinh-tour.aspx" target="_blank">Bản in</a> </td>
+                        <td align="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>
+                        <td align="center"><img width="13" height="9" src="@Url.Content("~/Content/Frontend/images/email_icon.jpg")">&nbsp;&nbsp;<a style="cursor:pointer" onclick="window.open('/du-lich/2-1-nd1016-002-070113-2/send-email-chuong-trinh-tour.aspx','print','width=520,height=450')">Email</a></td>
+                        <td align="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>*@
+                        @*<td align="center"><img width="10" height="10" src="@Url.Content("~/Content/Frontend/images/detail_icon.jpg")">&nbsp;&nbsp;<a href="javascript:__doPostBack('ucIndex_TourInfo$ucTourInfo1$ImgInfor','')" id="ucIndex_TourInfo_ucTourInfo1_ImgInfor">Chi tiết</a> </td>*@
+                        <td align="center"><img width="10" height="10" src="@Url.Content("~/Content/Frontend/images/detail_icon.jpg")">&nbsp;&nbsp;<a href="/Tours/TourDetailService/?slug=@ViewBag.TourDetailInfo.slug" id="ucIndex_TourInfo_ucTourInfo1_ImgInfor">Detail</a> </td>
+                        <td align="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>
+                        <td align="center"><img width="10" height="10" src="@Url.Content("~/Content/Frontend/images/back_icon.jpg")"> <a href="javaScript:history.back();">Trở về </a></td>
+                        <td align="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>
+                        <td align="center"><a href="/Tours/BookTour/?slug=@ViewBag.TourDetailInfo.slug" target="_blank"><img style="height:22px;width:57px;border-width:0px;" border="0" src="@Url.Content("~/Content/Frontend/images/booking.png")"></a></td>
+                        </tr>
+                    </tbody></table></td>
+                    </tr>                 
+                  <tr>
+                    <td style="height:5px"></td>
+                  </tr>
+                  <tr id="ucIndex_TourInfo_ucTourInfo1_tourinfo">
+	<td>
+                            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                <tbody><tr>
+                                    <td style="width:5px">&nbsp;</td>
+                                    <td style="width:77%">     
+                                        <h1 style="font-size:11px;line-height: 1em;font-weight:bold">@ViewBag.TourDetailInfo.tenTour (@ViewBag.TourDetailInfo.soNgayDem)</h1>
+                                     <b>    Departure date: @ViewBag.TourDetailInfo.ngayThucHien.ToString("dd/MM/yyyy") |&nbsp;<a title="ngày khác" style="text-decoration:underline;cursor:pointer" href="#">Other date</a><br>
+                                        Depart from: @ViewBag.TourDetailInfo.DiaDiem.tenDiaDiem
+                                    </b>
+                                    </td>
+                                    <td valign="top" align="right"><span class="redtext">Price: @ViewBag.TourDetailInfo.giaTour JPY</span></td>
+                                    <td style="width:5px">&nbsp;</td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+</tr>
+
+                  <tr>
+
+                    <!-- Giới thiệu tour -->
+                    <td id="ucIndex_TourInfo_ucTourInfo1_id_content">
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0"> 
+                            <tbody>
+                                <tr>
+                                    <td style="width:5px">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:5px">&nbsp;</td>
+                                    <td>
+                                        @Html.Raw(ViewBag.TourDetailInfo.gioiThieu)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+
+                  </tr>
+	<tr>
+                    <td align="left" style="padding-top:5px;padding-bottom:5px">                 
+                        <a class="fb-share-button fb-share-button-18" href="javascript:void(window.open('https://www.facebook.com/sharer/sharer.php?u=' + location.href, 'sharer', 'width=626,height=436,toolbar=0,status=0'));"><span>Share</span></a><br>                    
+                    <iframe scrolling="no" frameborder="0" style="border:none; width:450px; height:80px;padding-top:5px" src="https://www.facebook.com/plugins/like.php?href=https://travel.com.vn/2-1-nd1016-002-070113-2/du-lich-xe-2-da-nang-hue-phong-nha-ba-na-hoi-an.aspx"></iframe>                                           
+                    </td>
+                  </tr>
+                  <tr>
+                    
+                  </tr>
+                  <tr>
+                                       
+                    </tr>                 
+                  <tr>
+                    <td height="40" bgcolor="#E0DFDF" align="right"><table width="35%" cellspacing="0" cellpadding="0" border="0">
+                      <tbody><tr>
+                        @*<td align="center"><img width="11" height="10" src="@Url.Content("~/Content/Frontend/images/print_icon.jpg")">&nbsp;&nbsp;<a href="/du-lich/2-nd1016-002-070113-2/in-chuong-trinh-tour.aspx" target="_blank">Bản in</a> </td>
+                        <td align="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>
+                        <td align="center"><img width="13" height="9" src="@Url.Content("~/Content/Frontend/images/email_icon.jpg")">&nbsp;&nbsp;<a style="cursor:pointer" onclick="window.open('/du-lich/2-1-nd1016-002-070113-2/send-email-chuong-trinh-tour.aspx','print','width=520,height=450')">Email</a></td>
+                        <td align="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>*@
+                        @*<td align="center"><img width="10" height="10" src="@Url.Content("~/Content/Frontend/images/detail_icon.jpg")">&nbsp;&nbsp;<a href="javascript:__doPostBack('ucIndex_TourInfo$ucTourInfo1$ImgInfor','')" id="ucIndex_TourInfo_ucTourInfo1_ImgInfor">Chi tiết</a> </td>*@
+                        <td align="center"><img width="10" height="10" src="@Url.Content("~/Content/Frontend/images/detail_icon.jpg")">&nbsp;&nbsp;<a href="/Tours/TourDetailService" id="ucIndex_TourInfo_ucTourInfo1_ImgInfor">Detail</a> </td>
+                        <td align="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>
+                        <td align="center"><img width="10" height="10" src="@Url.Content("~/Content/Frontend/images/back_icon.jpg")"> <a href="javaScript:history.back();">Back </a></td>
+                        <td align="center"><img width="1" height="11" src="@Url.Content("~/Content/Frontend/images/seperate_grey.jpg")"></td>
+                        <td align="center"><a href="/Tours/BookTour/?slug=@ViewBag.TourDetailInfo.slug" target="_blank"><img style="height:22px;width:57px;border-width:0px;" border="0" src="@Url.Content("~/Content/Frontend/images/booking.png")"></a></td>
+                        </tr>
+                    </tbody></table></td>
+                  </tr>
+              </tbody></table></td>
+              <td width="5">&nbsp;</td>
+            </tr>
+          </tbody></table></td>
+        </tr>
+        <tr>
+          <td><img width="664" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_bottom.jpg")"></td>
+        </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>
+	<!-- InstanceEndEditable -->

@@ -1,0 +1,9 @@
+﻿<p><b>Loại tour:</b> @ViewBag.PartialTemplate.LoaiTour</p>
+<p><b>Tên tour:</b> @ViewBag.PartialTemplate.TenTour</p>
+<p><b>Số ngày đêm:</b> @ViewBag.PartialTemplate.SoNgayDem</p>
+<p><b>Điểm bắt đầu:</b> @ViewBag.PartialTemplate.DiemBatDau</p>
+<p><b>Các địa điểm sẽ qua:</b>@foreach (var s in @ViewBag.PartialTemplate.dsDiaDiem)
+                              {
+                                  <p>@s</p>
+                              }</p>
+<p><b>Giới thiệu:</b> @Html.Raw(@ViewBag.PartialTemplate.GioiThieu)</p>

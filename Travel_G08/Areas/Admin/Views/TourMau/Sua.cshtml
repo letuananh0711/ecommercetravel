@@ -1,0 +1,170 @@
+﻿@using Travel_G08.Areas.Admin.Controllers
+@model Travel_G08.TourMau
+@{
+    Layout = "~/Areas/Admin/Views/Shared/admin_layout.cshtml";
+}
+@if (Session["IsLogin"] == null)
+{
+    Response.Redirect("Login");
+}
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            keepProductHeadingState();
+        });
+    </script>
+}
+<div id="right" style="width:1130px;height:560px;overflow:auto;">
+    <div id="content">
+        <div class="container">       
+            <div class="conthead">
+                <h2>Edit template:</h2>
+             </div>
+             <div class="contentbox">
+             <ul class="breadcrumb">
+                <li>@Html.ActionLink("Home page", "Index", "Admin")</li> /
+                <li>@Html.ActionLink("List template", "DanhSach", "TourMau")</li> / 
+                <li>@Html.ActionLink("Edit template", "Sua", "TourMau", new { ID = @Model.maTour })</li>
+            </ul>
+                <form name="SuaTourMau" id="SuaTourMau" action="Sua" method="post" class="form-horizontal" enctype="multipart/form-data">
+                @if(ViewBag.Error != null)
+                     {
+                        <div class="status error">
+                            <p class="closestatus"><a href="" title="Close">x</a></p>
+                            <p><img src="../../../Content/img/icon_error.png" alt="Error">
+	                        <span>Error! @ViewBag.Error</span></p>
+                        </div>
+                     }
+                     @if (ViewBag.Message != null)
+                     {
+                        <div class="status success">
+                            <p class="closestatus"><a href="" title="Close">x</a></p>
+                            <p><img src="../../../Content/img/icon_approve.png" alt="Error">
+	                        <span>@ViewBag.Message!</span></p>
+                        </div>
+                     }
+                    <div class="control-group">
+                        <label class="control-label">Type</label>
+                        <div class="controls">
+                            <select name="type">
+                                <option value="City tour - One day tour" @if (Model.loaiTour == "City tour - One day tour") { ViewContext.Writer.Write("selected"); }>City tour - One day tour</option>
+                                <option value="Tour quốc tế" @if (Model.loaiTour == "Tour quốc tế") { ViewContext.Writer.Write("selected"); }>Tour quốc tế</option>
+                                <option value="Tour trong nước" @if (Model.loaiTour == "Tour trong nước") { ViewContext.Writer.Write("selected"); }>Tour trong nước</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Name</label>
+                        <div class="controls">
+                            <input type="text" name="name" value="@Model.tenTour"/>
+                        </div>
+                    </div>
+                   <div class="control-group">
+                        <label class="control-label" for="image">Duration</label>
+                        <div class="controls">
+                            <input type="text" name="duration" value="@Model.soNgayDem"/>
+                        </div>
+                    </div>
+                   <div class="control-group">
+                        <label class="control-label">Start destination</label>
+                        <div class="controls">
+                            <select name="start_destination">
+                                @foreach (var a in @ViewBag.ListDestinationByCountry)
+                                {
+                                    <optgroup label="@a.TenQuocGia">
+                                    @foreach (var b in @a.TenDiaDiems)
+                                    {
+                                        <option value="@b.maDiaDiem" @if(@b.maDiaDiem == Model.maDiemBatDau){ViewContext.Writer.Write("selected");}>@b.tenDiaDiem</option>
+                                    }
+                                    </optgroup>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="image">Description</label>
+                        <div class="controls">
+                            <textarea name="description" rows="18">@Model.gioiThieu</textarea>
+                        </div>
+                    </div>
+
+                    @*Start thêm bớt địa điểm*@
+                    @*Textbox chứa danh sách các địa điểm dc chọn*@
+                    <input type="hidden" value="" name="inputListDestination" id="inputListDestination"/>
+                    <div class="control-group">
+                        <label class="control-label" for="image">List destination</label>
+                        <div class="controls">
+                            <div id="listDestination" name="listDestination">
+                            @foreach (var a in @ViewBag.dsDiaDiemTourMau)
+                            {
+                                <div id="@a.MaDiaDiem">
+                                    <input type="button" value="X" onclick="deleteDiv(this)"/>
+                                      @a.TenDiaDiem
+                                </div>
+                            }
+                            </div>
+                            <select name="list_destination" id="list_destination">
+                                @foreach (var a in @ViewBag.ListDestinationByCountry)
+                                {
+                                    <optgroup label="@a.TenQuocGia">
+                                    @foreach (var b in @a.TenDiaDiems)
+                                    {
+                                        <option value="@b.maDiaDiem">@b.tenDiaDiem</option>
+                                    }
+                                    </optgroup>  
+                                }
+                            </select>
+                            <script type="text/javascript">
+                                refreshInputListDestination();
+                            </script>
+                            <button type="button" class="btn btn-primary" onclick="createDivDestination()">Add</button>
+                        </div>
+                    </div>
+                    @*End thêm bớt địa điểm*@
+
+                    @*Start thêm bớt dịch vụ*@
+                    @*Textbox chứa danh sách các địa điểm dc chọn*@
+                    <input type="hidden" value="" name="inputListService" id="inputListService"/>
+                    <div class="control-group">
+                        <label class="control-label" for="image">List service</label>
+                        <div class="controls">
+                            <div id="listService" name="listService">
+                                @foreach (var a in @ViewBag.dsDichVuTourMau)
+                                {
+                                    <div id="@a.MaDichVu">
+                                        <input type="button" value="X" onclick="deleteDiv(this)"/>
+                                          @a.TenDichVu
+                                    </div>
+                                }
+                            </div>
+                            
+                            <select name="list_service" id="list_service">
+                                @foreach (var a in @ViewBag.ListServiceByCountry)
+                                {
+                                    <optgroup label="@a.TenQuocGia">
+                                    @foreach (var b in @a.TenDichVus)
+                                    {
+                                        <option value="@b.maDichVu">@b.tenDichVu</option>
+                                    }
+                                    </optgroup>
+                                }
+                            </select>
+                            <script type="text/javascript">
+                                refreshInputListService();
+                            </script>
+                            <button type="button" class="btn btn-primary" onclick="createDivService()">Add</button>
+                        </div>
+                    </div>
+                    @*End thêm bớt dịch vụ*@
+                    @*<button type="button" onclick="getListDestination()">List destination</button>  *@               
+                    <input name="ID" type="hidden" value="@Model.maTour"/>
+                    <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Apply</button>
+                        @Html.ActionLink("Exit", "DanhSach", "TourMau", new { @class = "btn btn-inverse" })
+                    </div>
+                </form>
+             </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,127 @@
+﻿@*@model Travel_G08.Models.RegisterModel*@
+
+@{
+    ViewBag.Title = "TRAVEL G08 Website - Sign up";
+    Layout = "~/Content/Frontend/_layout.cshtml";
+}
+
+@section scripts
+{
+    <!-- Sign up -->
+    <link href="@Url.Content("~/Content/Frontend/css/register.css")" type="text/css" rel="stylesheet"/>
+    <link href="@Url.Content("~/Content/login_form.css")" rel="Stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/main.css")" rel="Stylesheet" type="text/css"/>
+
+    <!-- Check form sign up -->
+    <script type="text/javascript">
+        function validateForm() {
+            var password = document.forms["registerForm"]["password"].value;
+            var confirm_password = document.forms["registerForm"]["confirm_password"].value;
+            var count = document.forms["registerForm"]["password"].value.length;
+            
+            if (confirm_password != password) {
+                alert("The new password and confirmation password do not match.");
+                return false;
+            }
+
+            if (count < 6) {
+                alert("The password must be at least 6 characters long.");
+                return false;
+            }
+        }
+    </script>
+}
+
+@section menu
+{
+    <ul>      
+        <li><a href="/Home/Index" class="selected">Home</a></li>
+        <li><a href="/Home/About">About</a></li>
+        <li><a href="/Tours/Index">Tours</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                <li><a href="/Tours/InternationalTours">International tour</a></li>
+                <li><a href="/Tours/CityTours">City tour</a></li>
+            </ul>
+        </li>
+        <li><a href="/Services/Index">Services</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Services/Airplane">Airplane</a></li>
+                <li><a href="/Services/Hotel">Hotel</a></li>
+                <li><a href="/Services/Transport">Transport</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/Contact/Index">Contact</a></li>
+    </ul>
+}
+
+
+@*<h2>@ViewBag.Message</h2>*@
+
+<!-- Main body -->
+@if(ViewBag.Error != null)
+                    {
+                    <div class="status error">
+                        <p class="closestatus"><a href="" title="Close">x</a></p>
+                        <p><img src="../Content/img/icon_error.png" alt="Error">
+	                    <span>Error! @ViewBag.Error</span></p>
+                    </div>
+                    }
+@if (ViewBag.Message != null)
+{
+<div class="status success">
+    <p class="closestatus"><a href="" title="Close">x</a></p>
+    <p><img src="../Content/img/icon_approve.png" alt="Error">
+    <span>@ViewBag.Message</span></p>
+</div>
+}
+<div class="registerForm">
+	<form class="register active" name="registerForm" action="/Account/Register" method="post" onsubmit="return validateForm()">
+		<h3>Create an account</h3>
+		<div class="column">
+			<h4>Login information</h4>
+			<div>
+				<label>Email:<span class="redtext">*</span></label>
+				<input type="email" required="required" name="email"  placeholder="Your email address"/>
+			</div>
+			<div>
+				<label>Password:<span class="redtext">*</span></label>
+				<input type="password" required="required" name="password" placeholder="Enter a password"/>
+			</div>
+			<div>
+				<label>Comfirm Password:<span class="redtext">*</span></label>
+				<input type="password" required="required" name="confirm_password" placeholder="Retype your password"/>
+			</div>
+		</div>
+		<div class="column">
+			<h4>Personal information</h4>
+			<div>
+				<label>Full Name:<span class="redtext">*</span></label>
+				<input type="text" required="required" name="name" placeholder="Your real name"/>
+			</div>
+			<div>
+				<label>Address:</label>
+				<input type="text" name="address" placeholder="Where you're living"/>
+			</div>
+			<div>
+				<label>Phone Number:</label>
+				<input type="text" name="phone" placeholder="Telephone or mobile number"/>
+			</div>
+		</div>
+		<div class="column">
+			<h4>Payment information</h4>
+			<div>
+				<label>Bank Account:</label>
+				<input type="text" name="bank_account_ID" placeholder="Bank account number"/>
+			</div>
+		</div>
+		<div class="bottom">
+			<input type="submit" value="Register" />
+			<a href="/Account/Login" rel="login" class="linkform">You have an account already ? Log in here</a>
+			<div class="clear"></div>
+		</div>
+	</form>
+</div>

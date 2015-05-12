@@ -1,0 +1,82 @@
+﻿@using Travel_G08.Areas.Admin.Controllers
+@{
+    Layout = "~/Areas/Admin/Views/Shared/admin_layout.cshtml";
+}
+@if (Session["IsLogin"] == null)
+{
+    Response.Redirect("Login");
+}
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            keepProductHeadingState();
+        });
+    </script>
+}
+<div id="right" style="width:1130px;height:560px;overflow:auto;">
+    <div id="content">
+        <div class="container">       
+            <div class="conthead">
+                <h2>New service:</h2>
+             </div>
+             <div class="contentbox">
+             <ul class="breadcrumb">
+                <li>@Html.ActionLink("Home page", "Index", "Admin")</li> /
+                <li>@Html.ActionLink("List service", "DanhSach", "DichVu")</li> / 
+                <li>@Html.ActionLink("New service", "Them", "DichVu")</li>
+            </ul>
+                <form action="Them" method="post" class="form-horizontal" enctype="multipart/form-data">
+                @if(ViewBag.Error != null)
+                     {
+                        <div class="status error">
+                            <p class="closestatus"><a href="" title="Close">x</a></p>
+                            <p><img src="../../Content/img/icon_error.png" alt="Error">
+	                        <span>Error! @ViewBag.Error</span></p>
+                        </div>
+                     }
+                     @if (ViewBag.Message != null)
+                     {
+                        <div class="status success">
+                            <p class="closestatus"><a href="" title="Close">x</a></p>
+                            <p><img src="../../Content/img/icon_approve.png" alt="Error">
+	                        <span>@ViewBag.Message!</span></p>
+                        </div>
+                     }
+                    <div class="control-group">
+                        <label class="control-label">Destination</label>
+                        <div class="controls">
+                            <select name="destination">
+                                @foreach (var a in @ViewBag.ListDestinationByCountry)
+                                {
+                                    <optgroup label="@a.TenQuocGia">
+                                    @foreach (var b in @a.TenDiaDiems)
+                                    {
+                                        <option value="@b.maDiaDiem">@b.tenDiaDiem</option>
+                                    }
+                                    </optgroup>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Service</label>
+                        <div class="controls">
+                            <input type="text" name="service"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Description</label>
+                        <div class="controls">
+                            <textarea name="description" rows="12"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                        @Html.ActionLink("Exit", "DanhSach", "DichVu", new { @class = "btn btn-inverse" })
+                    </div>
+                </form>
+             </div>
+        </div>
+    </div>
+</div>

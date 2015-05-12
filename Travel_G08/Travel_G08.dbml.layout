@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.25, 19.375" name="Travel_G08">
+  <DataContextMoniker Name="/Travel_G08DataContext" />
+  <nestedChildShapes>
+    <classShape Id="ad0a1bef-7a56-4e08-8ffb-a7956c1fd7fa" absoluteBounds="9, 8.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/Travel_G08DataContext/DanhSachDiaDiemTour" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e885939c-d3e1-4639-ae87-af38ef0b063d" absoluteBounds="9.015, 9.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="253bf695-bb82-410b-91be-866a6ce0d813" absoluteBounds="6.25, 7.25, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/Travel_G08DataContext/TourMau" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8e3f37e-b376-4d63-8c41-8339d40fb8ee" absoluteBounds="6.265, 7.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fde6afa0-a024-49eb-ad9c-1cfae45c4703" absoluteBounds="9, 4, 2, 1.193992513020834">
+      <DataClassMoniker Name="/Travel_G08DataContext/DanhSachDiaDiemTourMau" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a787ed05-92ae-41aa-9c6b-8c64ce5e1e9b" absoluteBounds="9.015, 4.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="12e6eae6-25fd-4ead-ace8-855907e047f6" absoluteBounds="9, 6.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/Travel_G08DataContext/DanhSachDichVuTour" />
+      <nestedChildShapes>
+        <elementListCompartment Id="64289f31-7713-4b35-9684-917a90c58d34" absoluteBounds="9.015, 6.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e2e1de30-b648-4d0e-8f41-6edb58b6adf5" absoluteBounds="12, 6.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/Travel_G08DataContext/DanhSachDichVuTourMau" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d9857c8c-49f4-42d3-8943-4121b0859923" absoluteBounds="12.015, 6.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca2a8aa5-b76f-44fc-8af3-b03c786af6f1" absoluteBounds="11.75, 11.25, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/Travel_G08DataContext/DanhSachNguoiThamGiaTour" />
+      <nestedChildShapes>
+        <elementListCompartment Id="570c28f8-8e74-496a-99a2-eca219546987" absoluteBounds="11.765, 11.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8176bae-9cea-4fb7-975e-61dcece838f7" absoluteBounds="3.5, 5.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/Travel_G08DataContext/DiaDiem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ca06c1f-d0f3-472c-ad23-258b831eb0f8" absoluteBounds="3.515, 6.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="91afdd0f-3b63-404c-a2db-7b439dce5e87" absoluteBounds="6.25, 4.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/Travel_G08DataContext/DichVu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bef59c91-be3c-46be-91ff-6ae951a553db" absoluteBounds="6.265, 5.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f94117db-fcbd-43d4-8061-f148ba15d548" absoluteBounds="6.25, 14.25, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/Travel_G08DataContext/KhachHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36f2563c-e755-4f3b-9e15-a4bfde29291a" absoluteBounds="6.265, 14.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d2ac7fe4-80da-4f38-b192-080c5e36a1ab" absoluteBounds="0.75, 1.25, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/Travel_G08DataContext/LoaiNCCDichVu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b531d68e-b1a7-42c1-84c9-d966b72e84f7" absoluteBounds="0.765, 1.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3000fb46-9365-4fd2-b381-6ac458606340" absoluteBounds="0.75, 14.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/Travel_G08DataContext/LoaiTaiKhoan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d2354fa-0c87-4cd7-8cef-8c5ed2a695d0" absoluteBounds="0.765, 15.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2064aa98-b17e-444b-ab9c-ba089bd1a87a" absoluteBounds="3.5, 0.875, 2, 1.9631982421874998">
+      <DataClassMoniker Name="/Travel_G08DataContext/NCCDichVu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6da0a651-30df-4b7f-8738-4c43c7b4f1d8" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="21662a3d-6238-41af-8756-6a9282844f8d" absoluteBounds="6.25, 17.375, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/Travel_G08DataContext/NhanVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c826b49-d863-43c3-87c7-4439ae5381d1" absoluteBounds="6.265, 17.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ebb7f3fc-eb74-4ee7-b165-d9d829022209" absoluteBounds="9, 10.875, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/Travel_G08DataContext/PhieuDatTour" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46b6322b-04c4-49da-88c0-7ce4481a23b5" absoluteBounds="9.015, 11.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1ef6227c-9ca2-4b70-8e9c-80cf25bdad74" absoluteBounds="0.75, 6, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/Travel_G08DataContext/QuocGia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b883937e-c034-498e-86fc-c1718e06821c" absoluteBounds="0.765, 6.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="24ee2679-5171-42b9-8c0d-a55858a9962a" absoluteBounds="3.5, 14.375, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/Travel_G08DataContext/TaiKhoan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2df89d6e-046d-42b2-8baa-ea3a9a081e05" absoluteBounds="3.515, 14.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="40c2c1a3-4e42-43b6-85d8-ca8088309243" absoluteBounds="6.25, 9.875, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/Travel_G08DataContext/Tour" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c7c18b05-8788-4e51-a21f-57af760bcf1c" absoluteBounds="6.265, 10.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 7.25150915249399); (8.625 : 6.87650915249399); (8.625 : 4.59699625651042); (9 : 4.59699625651042)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/TourMau/TourMau_DanhSachDiaDiemTourMau" />
+      <nodes>
+        <classShapeMoniker Id="253bf695-bb82-410b-91be-866a6ce0d813" />
+        <classShapeMoniker Id="fde6afa0-a024-49eb-ad9c-1cfae45c4703" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 7.47524251302083); (8.72916666666667 : 7.47524251302083 : JumpStart); (8.89583333333333 : 7.47524251302083 : JumpEnd); (12 : 7.47524251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/TourMau/TourMau_DanhSachDichVuTourMau" />
+      <nodes>
+        <classShapeMoniker Id="253bf695-bb82-410b-91be-866a6ce0d813" />
+        <classShapeMoniker Id="e2e1de30-b648-4d0e-8f41-6edb58b6adf5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 7.64589680989583); (4.5 : 9.54409912109375); (4.94791916666667 : 9.54409912109375 : JumpStart); (5.11458583333333 : 9.54409912109375 : JumpEnd); (8.52679731480369 : 9.54409912109375 : JumpStart); (8.69346398147036 : 9.54409912109375 : JumpEnd); (9 : 9.54409912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/DiaDiem/DiaDiem_DanhSachDiaDiemTour" />
+      <nodes>
+        <classShapeMoniker Id="d8176bae-9cea-4fb7-975e-61dcece838f7" />
+        <classShapeMoniker Id="ad0a1bef-7a56-4e08-8ffb-a7956c1fd7fa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.44794840494792); (6.25 : 7.44794840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/DiaDiem/DiaDiem_TourMau" />
+      <nodes>
+        <classShapeMoniker Id="d8176bae-9cea-4fb7-975e-61dcece838f7" />
+        <classShapeMoniker Id="253bf695-bb82-410b-91be-866a6ce0d813" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 5.875); (4.5 : 4.26724562825521); (9 : 4.26724562825521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/DiaDiem/DiaDiem_DanhSachDiaDiemTourMau" />
+      <nodes>
+        <classShapeMoniker Id="d8176bae-9cea-4fb7-975e-61dcece838f7" />
+        <classShapeMoniker Id="fde6afa0-a024-49eb-ad9c-1cfae45c4703" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 6.28929768880208); (8.54166666666667 : 6.28929768880208 : JumpStart); (8.70833333333333 : 6.28929768880208 : JumpEnd); (9 : 6.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/DichVu/DichVu_DanhSachDichVuTour" />
+      <nodes>
+        <classShapeMoniker Id="91afdd0f-3b63-404c-a2db-7b439dce5e87" />
+        <classShapeMoniker Id="12e6eae6-25fd-4ead-ace8-855907e047f6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 5.65949625651042); (8.54166666666667 : 5.65949625651042 : JumpStart); (8.70833333333333 : 5.65949625651042 : JumpEnd); (13 : 5.65949625651042); (13 : 6.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/DichVu/DichVu_DanhSachDichVuTourMau" />
+      <nodes>
+        <classShapeMoniker Id="91afdd0f-3b63-404c-a2db-7b439dce5e87" />
+        <classShapeMoniker Id="e2e1de30-b648-4d0e-8f41-6edb58b6adf5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.16429768880208); (6.25 : 6.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/DiaDiem/DiaDiem_DichVu" />
+      <nodes>
+        <classShapeMoniker Id="d8176bae-9cea-4fb7-975e-61dcece838f7" />
+        <classShapeMoniker Id="91afdd0f-3b63-404c-a2db-7b439dce5e87" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.84699625651042); (3.5 : 1.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/LoaiNCCDichVu/LoaiNCCDichVu_NCCDichVu" />
+      <nodes>
+        <classShapeMoniker Id="d2ac7fe4-80da-4f38-b192-080c5e36a1ab" />
+        <classShapeMoniker Id="2064aa98-b17e-444b-ab9c-ba089bd1a87a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 12.2315991210937); (11.75 : 12.2315991210937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/PhieuDatTour/PhieuDatTour_DanhSachNguoiThamGiaTour" />
+      <nodes>
+        <classShapeMoniker Id="ebb7f3fc-eb74-4ee7-b165-d9d829022209" />
+        <classShapeMoniker Id="ca2a8aa5-b76f-44fc-8af3-b03c786af6f1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 15.2315991210937); (10 : 15.2315991210937); (10 : 13.6074039713542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/KhachHang/KhachHang_PhieuDatTour" />
+      <nodes>
+        <classShapeMoniker Id="f94117db-fcbd-43d4-8061-f148ba15d548" />
+        <classShapeMoniker Id="ebb7f3fc-eb74-4ee7-b165-d9d829022209" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.78929768880208); (3.5 : 6.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/QuocGia/QuocGia_DiaDiem" />
+      <nodes>
+        <classShapeMoniker Id="1ef6227c-9ca2-4b70-8e9c-80cf25bdad74" />
+        <classShapeMoniker Id="d8176bae-9cea-4fb7-975e-61dcece838f7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 15.2604484049479); (6.25 : 15.2604484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/TaiKhoan/TaiKhoan_KhachHang" />
+      <nodes>
+        <classShapeMoniker Id="24ee2679-5171-42b9-8c0d-a55858a9962a" />
+        <classShapeMoniker Id="f94117db-fcbd-43d4-8061-f148ba15d548" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 16.1458968098958); (4.5 : 18.2604484049479); (6.25 : 18.2604484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/TaiKhoan/TaiKhoan_NhanVien" />
+      <nodes>
+        <classShapeMoniker Id="24ee2679-5171-42b9-8c0d-a55858a9962a" />
+        <classShapeMoniker Id="21662a3d-6238-41af-8756-6a9282844f8d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 15.2219962565104); (3.5 : 15.2219962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/LoaiTaiKhoan/LoaiTaiKhoan_TaiKhoan" />
+      <nodes>
+        <classShapeMoniker Id="3000fb46-9365-4fd2-b381-6ac458606340" />
+        <classShapeMoniker Id="24ee2679-5171-42b9-8c0d-a55858a9962a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 9.90884515384615); (8.625 : 9.53384515384615); (8.625 : 10.3189925130208); (9 : 9.94399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/Travel_G08DataContext/Tour/Tour_DanhSachDiaDiemTour" />
+      <nodes>
+        <classShapeMoniker Id="40c2c1a3-4e42-43b6-85d8-ca8088309243" />
+        <classShapeMoniker Id="ad0a1bef-7a56-4e08-8ffb-a7956c1fd7fa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 9.90422976923077); (8.8125 : 9.34172976923077); (8.8125 : 6.83539710091146); (9 : 6.83539710091146)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/Tour/Tour_DanhSachDichVuTour" />
+      <nodes>
+        <classShapeMoniker Id="40c2c1a3-4e42-43b6-85d8-ca8088309243" />
+        <classShapeMoniker Id="12e6eae6-25fd-4ead-ace8-855907e047f6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 11.7412019856771); (9 : 11.7412019856771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/Tour/Tour_PhieuDatTour" />
+      <nodes>
+        <classShapeMoniker Id="40c2c1a3-4e42-43b6-85d8-ca8088309243" />
+        <classShapeMoniker Id="ebb7f3fc-eb74-4ee7-b165-d9d829022209" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0312525 : 7.64589680989583); (5.0312525 : 11.2412019856771); (6.25 : 11.2412019856771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Travel_G08DataContext/DiaDiem/DiaDiem_Tour" />
+      <nodes>
+        <classShapeMoniker Id="d8176bae-9cea-4fb7-975e-61dcece838f7" />
+        <classShapeMoniker Id="40c2c1a3-4e42-43b6-85d8-ca8088309243" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

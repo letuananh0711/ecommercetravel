@@ -1,0 +1,197 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@{
+    ViewBag.Title = "TRAVEL G08 Website - Booking tour information";
+    Layout = "~/Content/Frontend/_layout.cshtml";
+}
+
+@section menu
+{
+    <ul>      
+        <li><a href="/Home/Index">Home</a></li>
+        <li><a href="/Home/About">About</a></li>
+        <li><a href="/Tours/Index" class="selected">Tours</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                <li><a href="/Tours/InternationalTours">International tour</a></li>
+                <li><a href="/Tours/CityTours">City tour</a></li>
+            </ul>
+        </li>
+        <li><a href="/Services/Index">Services</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Services/Airplane">Airplane</a></li>
+                <li><a href="/Services/Hotel">Hotel</a></li>
+                <li><a href="/Services/Transport">Transport</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/Contact/Index">Contact</a></li>
+    </ul>
+}
+
+@*<h2>@ViewBag.Message</h2>*@
+<!-- Main body -->
+<!-- InstanceBeginEditable name="EditRegion1" -->
+<table width="664" cellspacing="0" cellpadding="0" border="0" align="center">
+        <tbody><tr>
+          <td><img width="664" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_top.jpg")"></td>
+        </tr>
+        <tr>
+          <td valign="top" class="borderLR">
+          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>
+              <td width="5">&nbsp;</td>
+              <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                  <tr>
+                        <td valign="top"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                          <tr>
+                            <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                              <tbody><tr>
+                                <td width="72%"><span class="Title" style="font-size:15px;">BOOKING INFORMATION</span><br /><br />
+                                Tour: <span class="redtext">@ViewBag.BookTourInfo.Tour.tenTour</span><br />
+                                Booking date: <span>@ViewBag.BookTourInfo.ngayDat.ToString("dd/MM/yyyy - hh:mm tt")</span><br />
+                                Departure date: <span>@ViewBag.BookTourInfo.Tour.ngayThucHien.ToString("dd/MM/yyyy")</span><br />
+                                Total: <span><strong>@ViewBag.BookTourInfo.tongTien</strong></span> JPY<br />
+                             </td>
+                              </tr>
+                            </tbody></table></td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                          </tr>
+                        </tbody></table></td>
+                      </tr>
+                      <tr>
+                        <td>
+                        <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tbody><tr>
+                            <td width="2%" height="30" bgcolor="#E0DFDF">&nbsp;</td>
+                            <td height="30" bgcolor="#E0DFDF" colspan="6"><strong class="Title"><span>Booking Customer Information</span></strong></td>
+                          </tr>
+                          </tbody>
+                          </table>
+                          <br />
+                          <table width="50%" cellspacing="0" cellpadding="0" border="1" align="center">
+                          <tbody>                     
+                          <tr>
+                              <td>
+                                <p style="margin:5px;">Full name: <span><strong>@ViewBag.BookTourInfo.KhachHang.hoTen</strong></span><br /></p>
+                                <p style="margin:5px;">Address: <span><strong>@ViewBag.BookTourInfo.KhachHang.diaChi</strong></span><br /></p>
+                                <p style="margin:5px;">Phone number: <span><strong>@ViewBag.BookTourInfo.KhachHang.soDienThoai</strong></span><br /></p>
+                                <p style="margin:5px;">Email: <span><strong>@ViewBag.BookTourInfo.KhachHang.TaiKhoan.email</strong></span><br /></p>
+                                <p style="margin:5px;">Bank account: <span><strong>@ViewBag.BookTourInfo.KhachHang.soTaiKhoanNganHang</strong></span></p>
+                              </td>
+                          </tr>                                                      
+                        </tbody></table>
+                        <br />
+                        </td>
+
+                      </tr>	                               
+                      <tr>
+                        <td>                        
+                        <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tbody><tr>
+                            <td width="2%" height="30" bgcolor="#E0DFDF">&nbsp;</td>
+                            <td height="30" bgcolor="#E0DFDF" colspan="6"><strong class="Title"><span>Tourists Information</span></strong></td>
+                          </tr>
+                          </tbody>
+                          </table>
+                          <br />
+                          <table width="100%" cellspacing="0" cellpadding="0" border="1">
+                          <tbody>
+                          <tr>
+                            <td width="30%" align="center"><u style="margin:5px;"><strong><span>Full name</span></strong></u></td>
+                            <td width="15%" align="center"><u style="margin:5px;"><strong><span>DOB</span></strong></u></td>
+                            <td width="30%" align="center"><u style="margin:5px;"><strong><span>Address</span></strong></u></td>
+                            <td width="10%" align="center"><u style="margin:5px;"><strong><span>Gender</span></strong></u></td> 
+                            <td align="center"><u style="margin:5px;"><strong><span>Age</span></strong></u></td>                                                       
+                          </tr>
+                          
+                          @if (@ViewBag.count == 0)
+                           {
+                              <tr>
+                                <td bgcolor="#EEEEEE" colspan="5">No result found.</td>
+                              </tr>
+                           }
+                           
+                           else
+                           {
+                              int i = 0;
+                                foreach (var kh in ViewBag.ListPassengers)
+                                {
+                                    if (i % 2 == 0)
+                                    {
+                                        <tr>
+                                            <td bgcolor="#EEEEEE"><p style="margin:5px;">@kh.hoTenKhachHang</p></td>
+                                            <td bgcolor="#EEEEEE"><p style="margin:5px;">@kh.ngaySinh.ToString("dd/MM/yyyy")</p></td>
+                                            <td bgcolor="#EEEEEE"><p style="margin:5px;">@kh.diaChi</p></td> 
+                                            <td bgcolor="#EEEEEE"><p style="margin:5px;">@kh.gioiTinh</p></td>
+                                            <td bgcolor="#EEEEEE"><p style="margin:5px;">@kh.doTuoi</p></td>                                                        
+                                        </tr>
+                                        i++;
+                                    }
+
+                                    else
+                                    {
+                                        <tr>
+                                            <td><p style="margin:5px;">@kh.hoTenKhachHang</p></td>
+                                            <td><p style="margin:5px;">@kh.ngaySinh.ToString("dd/MM/yyyy")</p></td>
+                                            <td><p style="margin:5px;">@kh.diaChi</p></td> 
+                                            <td><p style="margin:5px;">@kh.gioiTinh</p></td>
+                                            <td><p style="margin:5px;">@kh.doTuoi</p></td>                                                        
+                                        </tr>
+                                        i++;
+                                    }
+
+                                    
+                                }
+                           }
+                          
+                            
+                        @*<tr>
+                            <td><p style="margin:5px;">0912065</p></td>
+                            <td><p style="margin:5px;">Nguyễn Hoàng Bảo Duy</p></td>
+                            <td><p style="margin:5px;">0165 615 8539</p></td>
+                            <td><a style="margin:5px;" href="mailto:duy3105@gmail.com">duy3105@gmail.com</a></td>                                                         
+                        </tr>*@
+                                                                       
+                        </tbody></table>
+                        </td>
+                      </tr>               
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>                       
+                      </tr>                       
+                    </tbody>
+                </table>
+                </td>
+        </tr>
+      </tbody>
+   </table>
+
+        <tr>
+          <td><img width="664" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_bottom.jpg")"></td>
+        </tr>
+    </tbody>
+    </table></td>
+  </tr>
+</tbody>
+</table>
+
+@using (Html.BeginForm("PostToPaypal", "Tours"))
+{ 
+    <div>
+        <input type="hidden" name="tour_name" value="@ViewBag.BookTourInfo.Tour.tenTour"/>
+        <input type="hidden" name="amount" value="@ViewBag.BookTourInfo.tongTien"/>
+        <div style="text-align: center;">
+            <p>If the information above is correct, click <strong>PayPal Buy Now</strong> to complete your payment.</p>
+            <input type="image" type="submit" src="@Url.Content("~/Content/img/paypal-button.gif")" name="btnsubmit"/>
+        </div>
+    </div>
+}
+
+    <!-- InstanceEndEditable -->

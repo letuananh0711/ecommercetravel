@@ -1,0 +1,94 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/admin_layout.cshtml";
+}
+@if (Session["IsLogin"] == null)
+{
+    Response.Redirect("Login");
+}
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            keepProductHeadingState();
+        });
+    </script>
+}
+<div id="right" style="width:1130px;height:560px;overflow:auto;">
+    <div id="content">
+        <div class="container">       
+            <div class="conthead">
+                <h2>New country:</h2>
+             </div>
+             <div class="contentbox">
+             <ul class="breadcrumb">
+                <li>@Html.ActionLink("Home page", "Index", "Admin")</li> /
+                <li>@Html.ActionLink("List country", "DanhSach", "QuocGia")</li> / 
+                <li>@Html.ActionLink("New country", "Them", "QuocGia")</li>
+            </ul>
+                <form action="Them" method="post" class="form-horizontal" enctype="multipart/form-data">
+                @if(ViewBag.Error != null)
+                     {
+                        <div class="status error">
+                            <p class="closestatus"><a href="" title="Close">x</a></p>
+                            <p><img src="../../Content/img/icon_error.png" alt="Error">
+	                        <span>Error! @ViewBag.Error</span></p>
+                        </div>
+                     }
+                     @if (ViewBag.Message != null)
+                     {
+                        <div class="status success">
+                            <p class="closestatus"><a href="" title="Close">x</a></p>
+                            <p><img src="../../Content/img/icon_approve.png" alt="Error">
+	                        <span>@ViewBag.Message!</span></p>
+                        </div>
+                     }
+                    <div class="control-group">
+                        <label class="control-label">Country</label>
+                        <div class="controls">
+                            <input type="text" name="country"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Description</label>
+                        <div class="controls">
+                            <textarea name="description"></textarea>
+                        </div>
+                    </div>
+                   <div class="control-group">
+                        <label class="control-label" for="image">Image</label>
+                        <div class="controls">
+                            <input type="file" name="image" id="image"/>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                        @Html.ActionLink("Exit", "DanhSach", "QuocGia", new { @class = "btn btn-inverse" })
+                    </div>
+                </form>
+             </div>
+            @* @using (Html.BeginForm("Them", "QuocGia", FormMethod.Post, new { enctype = "multipart/form-data" }))
+             {
+                 <div class="control-group">
+                        <label class="control-label">Country</label>
+                        <div class="controls">
+                            <input type="text" name="country"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Description</label>
+                        <div class="controls">
+                            <input type="text" name="description"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="image">Image</label>
+                        <div class="controls">
+                            <input type="file" name="file" accept="image/*"/>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Add"/>
+
+             }*@
+        </div>
+    </div>
+</div>

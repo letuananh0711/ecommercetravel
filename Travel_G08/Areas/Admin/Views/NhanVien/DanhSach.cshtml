@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Travel_G08.NhanVien>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/admin_layout.cshtml";
+}
+@if (Session["IsLogin"] == null)
+{
+    Response.Redirect("Login");
+}
+@section scripts
+{
+    <script type="text/javascript">
+        function GetConfirmation() {
+            var reply = confirm("Are you sure you want to delete this?");
+            if (reply) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        $(document).ready(function () {
+            keepSystemHeadingState();
+        });
+    </script>
+}
+<div id="right" style="width:1130px;height:560px;overflow:auto;">
+    <div id="content">
+        <div class="container">       
+            <div class="conthead">
+                <h2>Employee list:</h2>
+             </div>
+             <div class="contentbox">
+             <ul class="breadcrumb">
+                <li>@Html.ActionLink("Home page", "Index", "Admin")</li> /
+                <li>@Html.ActionLink("List employee", "DanhSach", "NhanVien")</li> / 
+            </ul>
+                <table width="100%">
+                    <thead>
+                        <th>ID</th>
+                        <th width="80px">Account ID</th>
+                        <th width="200px">Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th width="50px">Action</th>
+                        <th><input name="" value="" id="checkboxall" type="checkbox"></th>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.count == 0)
+                        {
+                            <tr>
+                                <td colspan="7">No result found.</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            int i = 0;
+                            foreach (var s in Model)
+                            {
+                                if (i % 2 == 0)
+                                {
+                                    <tr class="alt">
+                                        <td>@s.maNhanVien</td>
+                                        <td>@s.TaiKhoan.maTaiKhoan</td>
+                                        <td>@s.hoTen</td>
+                                        <td>@s.diaChi</td>
+                                        <td>@s.soDienThoai</td>
+                                        <td align="center">                  
+                                            <a href="@Url.Action("Sua", "NhanVien", new { ID = @s.maNhanVien })" title=""><img src="../../../Content/img/icon_edit.png" alt="Edit"></a>                                       
+                                            <a href="@Url.Action("Xoa", "NhanVien", new { ID = @s.maNhanVien })" title="" class="delete-row" onclick="return GetConfirmation();"><img src="../../../Content/img/icon_delete.png" alt="Delete"></a>
+                                        </td>  
+                                            <td><input value="" name="checkall" type="checkbox"/></td>    
+                                    </tr>
+                                    i++;
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td>@s.maNhanVien</td>
+                                        <td>@s.TaiKhoan.maTaiKhoan</td>
+                                        <td>@s.hoTen</td>
+                                        <td>@s.diaChi</td>
+                                        <td>@s.soDienThoai</td>
+                                        <td align="center">                  
+                                            <a href="@Url.Action("Sua", "NhanVien", new { ID = @s.maNhanVien })" title=""><img src="../../../Content/img/icon_edit.png" alt="Edit"></a>
+                                            <a href="@Url.Action("Xoa", "NhanVien", new { ID = @s.maNhanVien })" title="" class="delete-row" onclick="return GetConfirmation();"><img src="../../../Content/img/icon_delete.png" alt="Delete"></a>
+
+                                        </td>                                      
+                                            <td><input value="" name="checkall" type="checkbox"/></td>
+                                        
+                                    </tr>
+                                    i++;
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+                <div class="pagination clearfix">
+                    @if ((string)ViewData["pageLinks"] != "")
+                    {
+                        <ul>
+                            @Html.Raw(ViewBag.pageLinks)
+                        </ul>
+                        <br />
+                        <br />
+                    }
+                </div>
+             </div>
+        </div>
+    </div>
+</div>

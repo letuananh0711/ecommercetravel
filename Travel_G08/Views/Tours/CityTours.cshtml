@@ -1,0 +1,232 @@
+﻿@model IEnumerable<Travel_G08.Tour>
+@*@inherits System.Web.Mvc.WebViewPage*@
+@{
+    ViewBag.Title = "TRAVEL G08 Website - City Tours";
+    Layout = "~/Content/Frontend/_layout.cshtml";
+}
+
+@{
+    Session["CurrentUrl"] = Request.Url.ToString();
+}
+
+@section menu
+{
+    <ul>      
+        <li><a href="/Home/Index">Home</a></li>
+        <li><a href="/Home/About">About</a></li>
+        <li><a href="/Tours/Index" class="selected">Tours</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                <li><a href="/Tours/InternationalTours">International tour</a></li>
+                <li><a href="/Tours/CityTours">City tour</a></li>
+            </ul>
+        </li>
+        <li><a href="/Services/Index">Services</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Services/Airplane">Airplane</a></li>
+                <li><a href="/Services/Hotel">Hotel</a></li>
+                <li><a href="/Services/Transport">Transport</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/Contact/Index">Contact</a></li>
+    </ul>
+}
+
+@*<h2>@ViewBag.Message</h2>*@
+
+<!-- Main body -->
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td>
+					<!--Khung các tour hot-->
+					<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td height="20">
+					<strong class="Title">CITY TOURS HOT &nbsp&nbsp</strong>
+					<img width="26" height="11" style="padding-left: 5px;" src="@Url.Content("~/Content/Frontend/images/hot_tour.gif")">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table width="664" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr>
+								<td>
+									<img width="664" height="7" src="@Url.Content("~/Content/Frontend/images/boxmain_top.jpg")">
+								</td>
+							</tr>
+							<tr>
+								<td class="borderLR" valign="top" bgcolor="#f6f6f6">
+									<table width="100%" cellspacing="0" cellpadding="0" border="0">
+										<tbody>
+											<tr>
+												<td width="7">
+												</td>
+												<td width="650px">
+													<table id="Tours" cellspacing="0" border="0" style="border-collapse:collapse;">
+														<tbody>
+                                                        
+                                                            @foreach (var group2tour in ViewBag.DS2Tours)
+                                                            {
+                                                                <tr>
+																<!--Tour-->
+                                                                @foreach (var tour in group2tour)
+                                                                {
+																<td valign="top" style="background-color:White;width:320px;">
+																	<table width="100%" cellspacing="0" cellpadding="6" border="0">
+																		<tbody>           
+                                                                                <tr >
+																				<td valign="top">
+																					<table width="100%" cellspacing="0" cellpadding="0" border="0">
+																						<tbody>
+																							<tr>
+																								<!--Link hình ảnh tour thumbnail-->
+																								<td width="100" valign="top" height="80">
+                                                                                                    <img style="border-width:0px;height:75px;width:100px;" src="../Content/img/DiaDiem/@tour.DiaDiem.hinhAnh" />
+																								</td>
+																								<!--End of Link hình ảnh tour thumbnail-->
+																								<td width="5">
+																								</td>
+																								<!--Link nội dung ngắn gọn tour-->
+																								<td valign="top" align="left">
+                                                                                                    <a style="font-weight:bold;" href="/Tours/TourDetailInfo/?slug=@tour.slug" target="_blank" title="@tour.tenTour" id="@tour.slug">@tour.tenTour</a>	
+                                                                                                        <br>      
+                                                                                                        (@tour.soNgayDem)
+																										<br>                                                                                         
+																										Giá: <span class="redtext">@tour.giaTour JPY</span>                                                                                     
+																										<br>
+                                                                                                        @{string ngayThucHien = @tour.ngayThucHien.ToString("dd/MM/yyyy");}                                                                                    
+																										Khởi hành: <b>@ngayThucHien</b><br/>
+																										<a href="/Tours/BookTour/?slug=@tour.slug" target="_blank"><img border="0" alt="" title="" src="@Url.Content("~/Content/Frontend/images/bt_booking_s.png")"></a>&nbsp;&nbsp;
+																								</td>
+																								<!--Link nội dung ngắn gọn tour-->
+																							</tr>
+																						</tbody>
+																					</table>
+																				</td>
+																			</tr>																	
+																		</tbody>
+																	</table>
+																</td>
+																<td valign="top" style="width:10px;">
+																</td>
+                                                                }	
+																<!--End of tour--> 
+															    </tr>
+                                                            }
+														</tbody>
+													</table>
+												</td>
+												<td width="7">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img width="664" height="7" src="@Url.Content("~/Content/Frontend/images/boxmain_bottom.jpg")">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+					<!--End of khung các tour hot-->
+				</td>
+				<td width="30">&nbsp;
+				</td>
+				<td valign="top">
+					<!--Khung list các tour khác-->
+					<table width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr>
+								<td valign="bottom" height="30">
+									<table width="100%" height="20" cellspacing="0" cellpadding="0" border="0">
+										<tbody  width="100%">
+											<tr>
+												<td width="51%">
+													<a target="_blank" title="OTHER TOURS" class="" href="#"><strong>OTHER TOURS</strong>
+													</a>
+												</td>		
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td><img width="365" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_top.jpg")"></td>                                               
+							</tr>
+							<tr>
+								<td class="borderLR">
+									<table width="350" cellspacing="0" cellpadding="0" border="0">
+										<tbody>
+											<tr>
+												<td width="1%">&nbsp;
+													
+												</td>
+												<td width="47%" valign="top">
+													<table width="100%" cellspacing="0" cellpadding="2" border="0">
+														
+															<tbody>
+                                                              @foreach (var tour in ViewBag.OtherTour)
+                                                              {
+                                                                  //if (tour.maTour != ViewBag.DS2Tours.maTour)
+                                                                  //{
+                                                                      <tr>
+																        <td width="87%">
+																	        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+																		        <tbody><tr>
+																			        <td width="86%">
+																			        <img width="16" height="12" style="padding-right: 7px" src="@Url.Content("~/Content/Frontend/images/news_icon.jpg")"><a target="_blank" title="@tour.tenTour" href="/Tours/TourDetailInfo/?slug=@tour.slug">@tour.tenTour</a></td>
+																		        </tr>
+																	        </tbody></table>
+																        </td>
+															        </tr>
+                                                                  //}
+                                                              }
+                                                              @*@foreach (var tour in @Model)
+                                                              {
+                                                                  <tr>
+																    <td width="87%">
+																	    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+																		    <tbody><tr>
+																			    <td width="86%">
+																			    <img width="16" height="12" style="padding-right: 7px" src="@Url.Content("~/Content/Frontend/images/news_icon.jpg")"><a target="_blank" title="@tour.tenTour" href="/Tours/TourDetailInfo/?slug=@tour.slug">@tour.tenTour</a></td>
+																		    </tr>
+																	    </tbody></table>
+																    </td>
+															    </tr>
+                                                              } *@                                                        						
+													</tbody></table>
+												</td>
+												<td width="2%">&nbsp;
+													
+												</td>
+												<td width="2%">&nbsp;
+													
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td><img width="365" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_bottom.jpg")"></td>                                                                                                                    
+							</tr>
+						</tbody>
+					</table>
+					<!--Khung list các tour khác--> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+    <!-- InstanceEndEditable -->

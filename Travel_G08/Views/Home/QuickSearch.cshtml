@@ -1,0 +1,90 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@{
+    ViewBag.Title = "TRAVEL G08 Website - Quick Search";
+    Layout = "~/Content/Frontend/_layout.cshtml";
+}
+
+@section menu
+{
+    <ul>      
+        <li><a href="/Home/Index" class="selected">Home</a></li>
+        <li><a href="/Home/About">About</a></li>
+        <li><a href="/Tours/Index">Tours</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                <li><a href="/Tours/InternationalTours">International tour</a></li>
+                <li><a href="/Tours/CityTours">City tour</a></li>
+            </ul>
+        </li>
+        <li><a href="/Services/Index">Services</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Services/Airplane">Airplane</a></li>
+                <li><a href="/Services/Hotel">Hotel</a></li>
+                <li><a href="/Services/Transport">Transport</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/Contact/Index">Contact</a></li>
+    </ul>
+}
+
+<p style="float:right;">Key search: <span style="color:Red;">@ViewBag.keySearch</span></p>
+<fieldset>
+    <legend style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:xx-large;">Quick Search Results</legend>
+    <br />
+    <table border="1" cellpadding="0" cellspacing="0" width="980px" style="margin: auto;">
+        <tr style="background-color:silver; height:35px; font-weight:bold;  ">
+            <th>
+                Tour number
+            </th>
+            <th>
+                Tour name
+            </th>
+            <th>
+                Duaration
+            </th>
+            <th>
+                Departure date
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Price (JPY)
+            </th>
+            <th>
+                More detail
+            </th>
+        </tr>
+
+    @foreach (var item in ViewBag.quickSearchTours)
+    {
+        <tr style="height:50px;">
+            <td align="center">
+                @item.maTour
+            </td>
+            <td>
+                @item.tenTour
+            </td>
+            <td align="center">
+                @item.soNgayDem
+            </td>
+            <td align="center">
+                @item.ngayThucHien.ToString("dd/MM/yyyy")
+            </td>
+            <td align="center">
+                @item.trangThaiTour
+            </td>
+            <td align="right">
+                @item.giaTour.000
+            </td>
+            <td align="center">
+                <a style="font-weight:bold;" href="/Tours/TourDetailInfo/?slug=@item.slug" target="_blank" title="@item.tenTour" id="@item.slug">Show</a>
+            </td>
+        </tr>
+    }
+    </table>
+</fieldset>

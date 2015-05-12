@@ -1,0 +1,877 @@
+
+body {
+    background: none repeat scroll 0 0 #E0E0E0;
+    margin: 0;
+    padding: 0;
+}
+input, textarea, body {
+    color: #666666;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+}
+img {
+    border: medium none;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0 0 15px;
+}
+a {
+    color: #666666;
+}
+a:hover {
+    color: #444444;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.extramar {
+    margin-bottom: 15px;
+}
+.nomar {
+    margin: 0 !important;
+}
+#header {
+    background: url("../images/bg_header.png") repeat-x scroll center bottom #BABABA;
+    border-bottom: 1px solid #6C6C6C;
+    height: 60px;
+    position: relative;
+    z-index: 1000;
+}
+.logo {
+    float: left;
+    padding: 15px 0 0 45px;
+}
+#searchbox {
+    background: url("../images/bg_fade_sml.png") repeat-x scroll center top #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    float: right;
+    margin: 10px 45px 0 0;
+    padding: 3px;
+    width: 310px;
+}
+.searchbtn, #userbox li a {
+    background-color: #ABABAB;
+    background-image: -moz-radial-gradient(50% -8px , circle , #C8C8C8, #8D8D8D);
+    border-radius: 5px 5px 5px 5px;
+    float: right;
+    padding: 6px;
+}
+.searchbtn:hover, .searchbtn:focus, #userbox li a:hover {
+    background-color: #888888;
+    background-image: -moz-radial-gradient(50% -8px , circle , #A9A9A9, #6D6D6D);
+}
+.searchinput {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    float: left;
+    margin: 4px 0 0 5px;
+    padding-right: 15px;
+    width: 250px;
+}
+#left {
+    position: absolute;
+    top: 61px;
+    width: 210px;
+}
+#toolbox {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 1px 1px 6px #999999;
+    height: 40px;
+    margin: 0 auto;
+    width: 180px;
+}
+#toolbox a {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    outline: medium none;
+    padding: 8px 0 5px 10px;
+    text-decoration: none;
+}
+#toolbox img {
+    left: 75px;
+    position: relative;
+    top: 5px;
+}
+#slider {
+    background-repeat: no-repeat;
+    margin-top: -150px;
+    position: absolute;
+    z-index: 100;
+}
+ul#sliderContent {
+    margin-left: 15px;
+    position: absolute;
+    z-index: 1;
+}
+ul#sliderContent li a {
+    display: block;
+    height: 20px;
+    padding: 5px 10px;
+    text-decoration: none;
+    width: 160px;
+}
+#openCloseWrap {
+    margin: 150px 0 0 15px;
+    position: relative;
+}
+#userbox {
+    font-size: 16px;
+    font-weight: 700;
+    left: 15px;
+    padding: 20px 0 0;
+    position: absolute;
+    text-align: center;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    top: 40px;
+    width: 180px;
+}
+#userbox span {
+    color: #888888;
+    font-size: 12px;
+    letter-spacing: normal;
+}
+#userbox ul {
+    margin: 10px auto;
+    width: 100px;
+}
+#userbox li {
+    float: left;
+}
+#userbox li a {
+    float: left;
+    margin-right: 5px;
+    padding: 5px;
+}
+#nav {
+    position: absolute;
+    top: 160px;
+    width: 210px;
+}
+ul#nav li a.heading, a.collapsed, a.expanded, ul.navigation li.selected {
+    background: url("../../Content/img/bg_navigation_links.png") no-repeat scroll center top #A7A7A7;
+    color: #555555;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    outline: medium none;
+    padding: 10px 0 10px 30px;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #D7D7D7;
+    width: 180px;
+}
+ul.navigation li.selected {
+    background: none repeat scroll 0 0 #4F4F4F !important;
+    color: #FFFFFF;
+    padding: 10px 0 10px 10px;
+    text-shadow: none;
+    width: 200px;
+}
+ul.navigation {
+    color: #FFFFFF;
+    width: 225px;
+}
+ul.navigation li a {
+    background: url("../images/bg_nav_link.png") repeat-x scroll center bottom transparent;
+    border-bottom: 1px solid #E7E7E7;
+    color: #333333;
+    display: block;
+    font-size: 14px;
+    outline: medium none;
+    padding: 10px;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    width: 190px;
+}
+ul.navigation li a:hover {
+    background: url("../images/bg_nav_link.png") repeat-x scroll center top transparent;
+}
+#right {
+    margin: 0 20px 0 210px;
+}
+#breadcrumb {
+    background: url("../images/bg_breadcrumb.png") repeat-x scroll center bottom #4F4F4F;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: auto;
+    padding: 12px;
+}
+#breadcrumb li {
+    color: #FFFFFF;
+    float: left;
+    padding-right: 10px;
+    text-shadow: 1px 1px 1px #222222;
+}
+#breadcrumb img {
+    left: 3px;
+    position: relative;
+    top: 2px;
+}
+#breadcrumb li.current {
+    font-size: 14px;
+    font-weight: 700;
+}
+#breadcrumb a {
+    color: #DDDDDD;
+    text-decoration: none;
+}
+#breadcrumb a:hover {
+    color: #CCCCCC;
+}
+ul#topbtns {
+    margin: 15px;
+}
+ul#topbtns li {
+    color: #555555;
+    float: left;
+    margin-right: 15px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+ul#topbtns li.desc {
+    padding-top: 15px;
+}
+ul#topbtns li span {
+    color: #666666;
+    font-size: 12px;
+}
+ul#topbtns li img {
+    padding: 15px 0 5px;
+}
+ul#topbtns li a {
+    background: url("../images/bg_fade_sml_reverse.png") repeat-x scroll center bottom #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 1px 1px 8px #CCCCCC;
+    color: #666666;
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    height: 70px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    width: 70px;
+}
+ul#topbtns li a:hover {
+    border: 1px solid #999999;
+    box-shadow: 1px 1px 8px #AAAAAA;
+    color: #444444;
+}
+#content {
+    background: none repeat scroll 0 0 #4F4F4F;
+    border-radius: 8px 8px 8px 8px;
+    clear: both;
+    min-height: 500px;
+    padding: 10px;
+    position: relative;
+    top: 15px;
+}
+.container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 1px 1px 2px #000000;
+    margin-bottom: 20px;
+    padding: 1px;
+}
+.conthead {
+    background: url("../images/bg_cont_head.png") repeat-x scroll center bottom #DBDBDB;
+    border-bottom: 1px solid #B4B4B4;
+    margin: 0;
+    overflow: auto;
+    padding: 10px 15px;
+    text-shadow: 1px 1px 1px #F7F7F7;
+}
+.conthead h2 {
+    font-size: 18px;
+    letter-spacing: -1px;
+    margin: 0;
+    padding: 0;
+}
+.contentbox {
+    padding: 20px;
+}
+ul.summarystats li, .tabfade {
+    background: url("../images/bg_fade_sml_reverse.png") repeat-x scroll center bottom transparent;
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 10px;
+    overflow: auto;
+    padding: 5px 12px 12px;
+}
+ul.summarystats p {
+    float: left;
+    margin-top: 10px;
+    padding-bottom: 0;
+}
+ul.summarystats p.statcount {
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 35px;
+    margin: 0;
+    min-width: 40px;
+    padding-right: 10px;
+}
+ul.summarystats p.statview {
+    float: right;
+    margin: 0;
+}
+ul.summarystats p.statview a {
+    border-radius: 8px 8px 8px 8px;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.tabcontent {
+    padding: 15px 0;
+}
+ul.tablinks {
+    margin-bottom: 20px;
+    padding-right: 0;
+}
+.ui-tabs .ui-tabs-nav li a {
+    background: none repeat scroll 0 0 #DBDBDB;
+    border-radius: 8px 8px 8px 8px;
+    color: #666666;
+    display: block;
+    font-size: 12px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+.ui-tabs .ui-tabs-nav li {
+    float: right;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a {
+    background: none repeat scroll 0 0 #848484;
+    color: #FFFFFF;
+    text-shadow: none;
+}
+.ui-tabs .ui-tabs-hide {
+    display: none;
+}
+.ui-tabs .ui-tabs-panel {
+    background-image: none;
+}
+.tabhead {
+    float: right;
+    min-width: 230px;
+}
+.tabhead li a {
+    border: 1px solid #E9E9E9;
+    margin: 0 0 0 10px !important;
+}
+.med {
+    width: 60%;
+}
+.sml {
+    width: 38%;
+}
+.half {
+    width: 49%;
+}
+select {
+    float: none;
+}
+.inputboxes {
+    margin-bottom: 5px;
+    overflow: auto;
+    padding: 5px;
+}
+.inputboxes label {
+    display: block;
+    float: left;
+    padding-top: 8px;
+    width: 75px;
+}
+.inputbox, .inputboxes select, select {
+    border: 1px solid #CCCCCC;
+    float: left;
+    min-width: 200px;
+    padding: 10px;
+}
+.inputbox {
+    background: url("../images/bg_input_normal.png") repeat-x scroll center top #FFFFFF;
+}
+.errorbox, .errorbox:focus {
+    background: url("../images/bg_input_error.png") repeat-x scroll center top #FFFFFF;
+    border: 1px solid #DE5F54 !important;
+    box-shadow: 1px 1px 2px #F6D3D0 !important;
+    color: #DE5F54;
+}
+.errortxt {
+    color: #DE5F54;
+    font-weight: 700;
+}
+.correctbox, .correctbox:focus {
+    background: url("../images/bg_input_correct.png") repeat-x scroll center top #FFFFFF;
+    border: 1px solid #96BE1B !important;
+    box-shadow: 1px 1px 2px #CEDC95 !important;
+    color: #96BE1B;
+}
+.correcttxt {
+    color: #96BE1B;
+    font-weight: 700;
+}
+.inputbox:focus {
+    border: 1px solid #AAAAAA;
+}
+.inputboxes img.att {
+    float: left;
+    padding: 10px 0 0 7px;
+}
+.inputboxes .smaller {
+    min-width: 100px;
+    width: 100px;
+}
+input[type="checkbox"], input[type="radio"] {
+    margin-top: 10px;
+}
+ul.gallerybox {
+    overflow: auto;
+}
+ul.gallerybox li {
+    background: url("../images/bg_gallerybox.png") repeat-x scroll center bottom #E3E3E3;
+    float: left;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 10px 15px 0;
+    padding: 5px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+ul.gallerybox p {
+    padding: 0;
+}
+.status {
+    border-radius: 10px 10px 10px 10px;
+    clear: both;
+    margin-bottom: 20px;
+    overflow: auto;
+    padding: 8px 10px 5px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+.status img {
+    float: left;
+    padding-right: 5px;
+}
+.status p {
+    margin: 0;
+    padding: 0;
+}
+.status p span {
+    font-weight: 700;
+}
+.status .closestatus {
+    color: #FFFFFF;
+    float: right;
+    margin-left: 10px;
+    text-align: center;
+}
+.status .closestatus a {
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    display: block;
+    height: 10px;
+    line-height: 0.6em;
+    padding: 5px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+    top: -2px;
+    width: 10px;
+}
+.warning {
+    background: url("../images/bg_fade_yellow_med.png") repeat-x scroll center top #FEEB9C;
+    border: 3px solid #BF9900;
+}
+.warning span {
+    color: #BF9900;
+}
+.warning .closestatus a {
+    background: none repeat scroll 0 0 #BF9900;
+}
+.warning .closestatus a:hover {
+    background: none repeat scroll 0 0 #9B7C00;
+}
+.success {
+    background: url("../Content/img/bg_fade_green_med.png") repeat-x scroll center top #CBDA8F;
+    border: 3px solid #8EA534;
+}
+.success span {
+    color: #8EA534;
+}
+.success .closestatus a {
+    background: none repeat scroll 0 0 #8EA534;
+}
+.success .closestatus a:hover {
+    background: none repeat scroll 0 0 #829829;
+}
+.error {
+    background: url("../Content/img/bg_fade_red_med.png") repeat-x scroll center top #F5D0CD;
+    border: 3px solid #990000;
+}
+.error span {
+    color: #990000;
+}
+.error .closestatus a {
+    background: none repeat scroll 0 0 #990000;
+}
+.error .closestatus a:hover {
+    background: none repeat scroll 0 0 #730D0D;
+}
+.info {
+    background: url("../Content/img/bg_fade_blue_med.png") repeat-x scroll center top #92D6ED;
+    border: 3px solid #2FADD7;
+}
+.info span {
+    color: #0E7A9F;
+}
+.info .closestatus a {
+    background: none repeat scroll 0 0 #2FADD7;
+}
+.info .closestatus a:hover {
+    background: none repeat scroll 0 0 #228DB0;
+}
+.usagebox {
+    border: 1px solid #CCCCCC;
+}
+.usagebox div {
+    height: 25px;
+}
+.highbar {
+    background: url("../Content/img/status_high.png") repeat-x scroll center top #A90000;
+}
+.midbar {
+    background: url("../Content/img/status_med.png") repeat-x scroll center top #F49401;
+}
+.lowbar {
+    background: url("../Content/img/status_low.png") repeat-x scroll center top #849A2A;
+}
+.usagetxt {
+    border-radius: 5px 5px 5px 5px;
+    padding: 3px 8px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+.redtxt {
+    background: none repeat scroll 0 0 #F3DFDB;
+    color: #CC0000;
+}
+.orangetxt {
+    background: none repeat scroll 0 0 #FCE9CC;
+    color: #ED9D20;
+}
+.greentxt {
+    background: none repeat scroll 0 0 #F3F7E1;
+    color: #9DB832;
+}
+table {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+th {
+    font-size: 14px;
+}
+tr.alt td {
+    background: none repeat scroll 0 0 #F2F2F2;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+.extrabottom {
+    border-top: 1px solid #CCCCCC;
+    height: 40px;
+    padding: 15px;
+}
+.extrabottom ul {
+    float: left;
+}
+.extrabottom li {
+    float: left;
+    padding-right: 25px;
+}
+.extrabottom li img {
+    float: left;
+    padding: 0 5px 0 0;
+}
+.bulkactions {
+    float: right;
+}
+.bulkactions select {
+    margin-right: 10px;
+}
+ul.pagination {
+    clear: both;
+    float: left;
+    font-size: 11px;
+}
+ul.pagination li {
+    float: left;
+    padding-right: 5px;
+}
+ul.pagination li a {
+    background: url("../Content/img/bg_fade_sml_reverse.png") repeat-x scroll center bottom transparent;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    display: block;
+    padding: 3px 7px;
+    text-decoration: none;
+}
+ul.pagination li.page a {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+ul.pagination li.page a:hover {
+    color: #FFFFFF;
+}
+ul.pagination li.text a {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    padding: 0 5px 0 0;
+    text-decoration: underline;
+}
+ul.pagination li.text {
+    line-height: 2em;
+}
+.contentbox ul {
+    margin-bottom: 20px;
+}
+ul.standard li {
+    background: url("../Content/img/icon_arrow.png") no-repeat scroll left center transparent;
+    padding: 5px 0 5px 25px;
+}
+ul.features li {
+    background: url("../Content/img/icon_tick.png") no-repeat scroll left center transparent;
+    padding: 5px 0 5px 25px;
+}
+ul.features li.alt {
+    background: url("../Content/img/icon_cross.png") no-repeat scroll left center transparent;
+}
+.contentbox p {
+    padding-bottom: 15px;
+}
+.highlight {
+    background: none repeat scroll 0 0 #FFF8CF;
+    border-radius: 5px 5px 5px 5px;
+    color: #DFB300;
+    padding: 3px 8px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+.dropcap {
+    color: #444444;
+    float: left;
+    font-family: times,serif;
+    font-size: 3.5em;
+    letter-spacing: 0;
+    line-height: 0.7;
+    margin: 0.13em 0.2em 0 0;
+    text-transform: uppercase;
+}
+a.enhanced_toggleResult {
+    display: none;
+}
+.visualize caption {
+    font-size: 11px;
+}
+.visualize {
+    background: none repeat scroll 0 0 #FAFAFA;
+    border: 1px solid #888888;
+    margin: 20px auto 10px;
+    position: relative;
+}
+.visualize canvas {
+    position: absolute;
+}
+.visualize ul, .visualize li {
+    margin: 0;
+    padding: 0;
+}
+.visualize .visualize-info {
+    background: none repeat scroll 0 0 #FAFAFA;
+    border: 1px solid #888888;
+    opacity: 0.8;
+    padding: 3px 5px;
+    position: absolute;
+    right: 10px;
+    top: -20px;
+}
+.visualize .visualize-title {
+    color: #333333;
+    display: block;
+    font-size: 1em;
+    margin-bottom: 3px;
+}
+.visualize ul.visualize-key {
+    list-style: none outside none;
+}
+.visualize ul.visualize-key li {
+    float: left;
+    list-style: none outside none;
+    margin-right: 10px;
+    padding-left: 10px;
+    position: relative;
+}
+.visualize ul.visualize-key .visualize-key-color {
+    height: 6px;
+    left: 0;
+    margin-top: -3px;
+    position: absolute;
+    top: 50%;
+    width: 6px;
+}
+.visualize ul.visualize-key .visualize-key-label {
+    color: #000000;
+}
+.visualize-pie .visualize-labels {
+    list-style-type: none;
+}
+.visualize-pie li {
+    list-style-type: none;
+}
+.visualize-pie .visualize-label-pos, .visualize-pie .visualize-label {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+.visualize-pie .visualize-label {
+    color: #FFFFFF;
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+}
+.visualize-pie-outside .visualize-label {
+    color: #000000;
+    font-weight: normal;
+}
+.visualize-labels-x, .visualize-labels-y {
+    left: 0;
+    list-style: none outside none;
+    position: absolute;
+    top: 0;
+}
+.visualize-labels-x li, .visualize-labels-y li {
+    bottom: 0;
+    position: absolute;
+}
+.visualize-labels-x li span.label, .visualize-labels-y li span.label {
+    color: #555555;
+    position: absolute;
+}
+.visualize-labels-x li span.line, .visualize-labels-y li span.line {
+    border: 0 solid #CCCCCC;
+    position: absolute;
+}
+.visualize-labels-x li {
+    height: 100%;
+    list-style: none outside none;
+}
+.visualize-labels-x li span.label {
+    margin-top: 5px;
+    top: 100%;
+}
+.visualize-labels-x li span.line {
+    border-left-width: 1px;
+    display: block;
+    height: 100%;
+}
+.visualize-labels-x li span.line {
+    border: 0 none;
+}
+.visualize-labels-y li {
+    list-style: none outside none;
+    width: 100%;
+}
+.visualize-labels-y li span.label {
+    display: block;
+    margin-right: 5px;
+    right: 100%;
+    text-align: right;
+    width: 100px;
+}
+.visualize-labels-y li span.line {
+    border-top-width: 1px;
+    width: 100%;
+}
+.visualize-bar .visualize-labels-x li span.label {
+    text-align: center;
+    width: 100%;
+}
+p#footer {
+    clear: both;
+    padding: 30px 0 20px 10px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+#left {
+    left: 0;
+}
+#openCloseWrap {
+}
+
+
+
+
+
+
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+input[type="submit"]
+{
+  width: 200px; 
+  height: 50px; 
+  font-size: 90%;
+}
+/*bootstrap*/

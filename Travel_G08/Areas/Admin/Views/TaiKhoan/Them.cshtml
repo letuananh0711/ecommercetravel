@@ -1,0 +1,111 @@
+﻿@using Travel_G08.Areas.Admin.Controllers
+@{
+    Layout = "~/Areas/Admin/Views/Shared/admin_layout.cshtml";
+}
+
+@if (Session["IsLogin"] == null)
+{
+    Response.Redirect("Login");
+}
+@section scripts
+{
+    <script type="text/javascript">
+        function validateForm() {
+//            var email = document.forms["myForm"]["email"].value;
+//            if (email == null || email == "") {
+//                alert("Email must be filled out");
+//                return false;
+//            }
+            var password = document.forms["myForm"]["password"].value;
+            if (password == null || password == "") {
+                alert("Password must be filled out");
+                return false;
+            }
+            var confirm_password = document.forms["myForm"]["confirm_password"].value;
+            if (confirm_password != password) {
+                alert("Confirm password does not match");
+                return false;
+            }
+        }
+        $(document).ready(function () {
+            keepSystemHeadingState();
+        });
+    </script>
+}
+<div id="right" style="width:1130px;height:560px;overflow:auto;">
+    <div id="content">
+        <div class="container">       
+            <div class="conthead">
+                <h2>New account:</h2>
+             </div>
+             <div class="contentbox">
+             <ul class="breadcrumb">
+                <li>@Html.ActionLink("Home page", "Index", "Admin")</li> /
+                <li>@Html.ActionLink("List account", "DanhSach", "TaiKhoan")</li> / 
+                <li>@Html.ActionLink("New account", "Them", "TaiKhoan")</li>
+            </ul>
+                <form name="myForm" action="Them" onsubmit="return validateForm()" method="post" class="form-horizontal" enctype="multipart/form-data">
+                    @if(ViewBag.Error != null)
+                    {
+                    <div class="status error">
+                        <p class="closestatus"><a href="" title="Close">x</a></p>
+                        <p><img src="../../../Content/img/icon_error.png" alt="Error">
+	                    <span>Error! @ViewBag.Error</span></p>
+                    </div>
+                    }
+                    @if (ViewBag.Message != null)
+                    {
+                    <div class="status success">
+                        <p class="closestatus"><a href="" title="Close">x</a></p>
+                        <p><img src="../../../Content/img/icon_approve.png" alt="Error">
+                        <span>@ViewBag.Message!</span></p>
+                    </div>
+                    }
+                    <div class="control-group">
+                        <label class="control-label">Email</label>
+                        <div class="controls">
+                        <input type="text" name="email"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Password</label>
+                        <div class="controls">
+                        <input type="password" name="password"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Confirm password</label>
+                        <div class="controls">
+                        <input type="password" name="confirm_password"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Account type</label>
+                        <div class="controls">
+                        <select name="account_type">
+                            @foreach(var s in ViewBag.dsLoaiTK)
+                            {
+                                <option value="@s.maLoaiTaiKhoan">@s.tenLoaiTaiKhoan</option>
+                            }
+                        </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                    <label class="control-label">Status</label>
+                    <div class="controls">
+                        <select name="status">
+                            <option value="Mở">Mở</option>
+                            <option value="Khóa">Khóa</option>
+                            <option value="Chưa xác nhận">Chưa xác nhận</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                        @Html.ActionLink("Exit", "DanhSach", "TaiKhoan", new { @class = "btn btn-inverse" })
+                    </div>                  
+                </form>                               
+             </div>
+        </div>
+    </div>
+</div>

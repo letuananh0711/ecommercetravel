@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pagination>
+  <NumLinks><![CDATA[5]]></NumLinks>
+  <FullTagOpen><![CDATA[<p class='pagination'>]]></FullTagOpen>
+  <FullTagClose><![CDATA[</p>]]></FullTagClose>
+  <CurTagOpen><![CDATA[<span class='current'>]]></CurTagOpen>
+  <CurTagClose><![CDATA[</span>]]></CurTagClose>
+</Pagination>

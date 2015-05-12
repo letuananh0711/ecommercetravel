@@ -1,0 +1,132 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@{
+    ViewBag.Title = "TRAVEL G08 Website - About";
+    Layout = "~/Content/Frontend/_layout.cshtml";
+}
+
+@{
+    Session["CurrentUrl"] = Request.Url.ToString();
+}
+
+@section menu
+{
+    <ul>      
+        <li><a href="/Home/Index">Home</a></li>
+        <li><a href="/Home/About" class="selected">About</a></li>
+        <li><a href="/Tours/Index">Tours</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Tours/DomesticTours">Domestic tour</a></li>
+                <li><a href="/Tours/InternationalTours">International tour</a></li>
+                <li><a href="/Tours/CityTours">City tour</a></li>
+            </ul>
+        </li>
+        <li><a href="/Services/Index">Services</a>
+            <ul>
+                <li><span class="top"></span><span class="bottom"></span></li>
+                <li><a href="/Services/Airplane">Airplane</a></li>
+                <li><a href="/Services/Hotel">Hotel</a></li>
+                <li><a href="/Services/Transport">Transport</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/Contact/Index">Contact</a></li>
+    </ul>
+}
+
+@*<h2>@ViewBag.Message</h2>*@
+<!-- Main body -->
+<!-- InstanceBeginEditable name="EditRegion1" -->
+<table width="664" cellspacing="0" cellpadding="0" border="0" align="center">
+        <tbody><tr>
+          <td><img width="664" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_top.jpg")"></td>
+        </tr>
+        <tr>
+          <td valign="top" class="borderLR">
+          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>
+              <td width="5">&nbsp;</td>
+              <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                  <tr>
+                        <td valign="top"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                          <tr>
+                            <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                              <tbody><tr>
+                                <td width="72%"><span class="Title" style="font-size:15px;">TRAVEL G08</span><br /><br />
+                                <span>TRAVEL G08 Website</span><br />
+                                <span>Team G08 - Big Module TRAVEL</span><br />
+                                <span>Project E-Commerce</span><br />
+                                <span>IT HCMUS 2012</span>
+                             </td>
+                              </tr>
+                            </tbody></table></td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                          </tr>
+                        </tbody></table></td>
+                      </tr>	                               
+                      <tr>
+                        <td>                        
+                        <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tbody><tr>
+                            <td width="2%" height="30" bgcolor="#E0DFDF">&nbsp;</td>
+                            <td height="30" bgcolor="#E0DFDF" colspan="6"><strong class="Title"><span>Thông tin thành viên</span></strong></td>
+                          </tr>
+                          </tbody>
+                          </table>
+                          <br />
+                          <table width="100%" cellspacing="0" cellpadding="0" border="1">
+                          <tbody>
+                          <tr>
+                            <td width="12%" align="center"><u style="margin:5px;"><strong><span>MSSV</span></strong></u></td>
+                            <td width="34%" align="center"><u style="margin:5px;"><strong><span>Họ tên sinh viên</span></strong></u></td>
+                            <td width="20%" align="center"><u style="margin:5px;"><strong><span>Điện thoại</span></strong></u></td>
+                            <td align="center"><u style="margin:5px;"><strong><span>Email</span></strong></u></td>                                                        
+                          </tr>  
+                        <tr>
+                            <td bgcolor="#EEEEEE"><p style="margin:5px;">0912003</p></td>
+                            <td bgcolor="#EEEEEE"><p style="margin:5px;">Lê Tuấn Anh</p></td>
+                            <td bgcolor="#EEEEEE"><p style="margin:5px;">0128 352 9242</p></td> 
+                            <td bgcolor="#EEEEEE"><a style="margin:5px;" href="mailto:lta0711@gmail.com">lta0711@gmail.com</a></td>                                                        
+                        </tr>
+                            
+                        <tr>
+                            <td><p style="margin:5px;">0912065</p></td>
+                            <td><p style="margin:5px;">Nguyễn Hoàng Bảo Duy</p></td>
+                            <td><p style="margin:5px;">0165 615 8539</p></td>
+                            <td><a style="margin:5px;" href="mailto:duy3105@gmail.com">duy3105@gmail.com</a></td>                                                         
+                        </tr>
+                        
+                        <tr>
+                            <td bgcolor="#EEEEEE"><p style="margin:5px;">0912324</p></td>
+                            <td bgcolor="#EEEEEE"><p style="margin:5px;">Nguyễn Thành Nhơn</p></td>
+                            <td bgcolor="#EEEEEE"><p style="margin:5px;">093 358 8559</p></td> 
+                            <td bgcolor="#EEEEEE"><a style="margin:5px;" href="mailto:ntnhon.cs@gmail.com">ntnhon.cs@gmail.com</a></td>                                                        
+                        </tr>    
+                                                                                               
+                        </tbody></table>
+                        </td>
+                      </tr>               
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>                       
+
+                      </tr>                       
+                    </tbody>
+                </table>
+                </td>
+        </tr>
+      </tbody>
+   </table>
+
+        <tr>
+          <td><img width="664" height="5" src="@Url.Content("~/Content/Frontend/images/boxnews_bottom.jpg")"></td>
+        </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>
+    <!-- InstanceEndEditable -->
